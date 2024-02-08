@@ -1,0 +1,19 @@
+.st_about {
+	@include mob-only {
+		padding-top: var(--space-3)
+	}
+	.st_about_inner {
+		@include flex-between;
+		.st_about_left {
+			width: 46%;
+		}
+		.st_about_right {
+			width: 49%;
+		}
+		@include mob-only {
+			.st_about_left, .st_about_right {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+.st_arrival {
+	@include flex-col;
+	align-items: center;
+	justify-content: center;
+	.block_bg {
+		img {
+			object-position: center left;
+		}
+	}
+	.st_arrival_content {
+		@include flex;
+		width: 45%;
+		justify-content: center;
+		margin-left: auto;
+		@include tab-max {
+			width: 100%;
+		}
+	}
+	.prefix, .intro_title {
+		color: #fff;
+		text-align: center;
+	}
+	.intro_title {
+		font-size: 6.4rem;
+		line-height: 1.04;
+		text-transform: uppercase;
+		color: var(--color-1);
+		margin-bottom: 0;
+		text-shadow: 0px 7px 6px rgba(0, 0, 0, 0.16);
+	}
+}

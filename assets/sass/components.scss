@@ -1,0 +1,135 @@
+/* Background */
+
+.block_bg {
+	@include bg_div;
+}
+
+.mob_bg {
+	@include limbo-min {
+		display: none;
+	}
+}
+
+/* Columns */
+
+.cols-2 {
+    .column {
+      width: 49%;
+      margin-bottom: 2%;
+      &:nth-child(2n + 1) {
+        margin-right: 2%;
+      }
+    }
+  }
+  .cols-3 {
+    .column {
+      width: 32%;
+      margin-bottom: 2%;
+      &:not(:nth-child(3n + 3)) {
+        margin-right: 2%;
+      }
+    }
+  }
+  .cols-4 {
+    .column {
+      width: 24%;
+      margin-bottom: 1.33%;
+      &:not(:nth-child(4n + 4)) {
+        margin-right: 1.33%;
+      }
+    }
+  }
+  .cols-5 {
+    .column {
+      width: 19%;
+      margin-bottom: 1.25%;
+      &:not(:nth-child(5n + 5)) {
+        margin-right: 1.25%;
+      }
+    }
+  }
+  figure img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  @include tab-max {
+    .tab-cols-1 {
+      .column {
+        width: 100%;
+        margin-bottom: 4%;
+        &:nth-child(1n + 1) {
+          margin-right: 0;
+        }
+      }
+    }
+    .tab-cols-2 {
+      .column {
+        width: 48%;
+        margin-bottom: 4%;
+        &:not(:nth-child(2n + 2)) {
+          margin-right: 4%;
+        }
+        &:nth-child(2n + 2) {
+          margin-right: 0;
+        }
+      }
+    }
+    .tab-cols-3 {
+      .column {
+        width: 32%;
+        margin-bottom: 2%;
+        &:nth-child(3n + 3) {
+          margin-right: 0;
+        }
+        &:not(:nth-child(3n + 3)) {
+          margin-right: 2%;
+        }
+      }
+    }
+    .tab-cols-4 {
+      .column {
+        width: 24%;
+        margin-bottom: 1.33%;
+        &:nth-child(4n + 4) {
+          margin-right: 1.33%;
+        }
+        &:not(:nth-child(4n + 4)) {
+          margin-right: 1.33%;
+        }
+      }
+    }
+  }
+  @include mob-only {
+    .mob-cols-1 {
+      .column {
+        width: 100%;
+        margin-bottom: 4%;
+        margin-right: 0 !important;
+      }
+    }
+    .mob-cols-2 {
+      .column {
+        width: 48%;
+        margin-bottom: 4%;
+        &:not(:nth-child(2n + 2)) {
+          margin-right: 4%;
+        }
+        &:nth-child(2n + 2) {
+          margin-right: 0;
+        }
+      }
+    }
+    .mob-cols-3 {
+      .column {
+        width: 32%;
+        margin-bottom: 2%;
+        &:nth-child(3n + 3) {
+          margin-right: 0;
+        }
+        &:not(:nth-child(3n + 3)) {
+          margin-right: 2%;
+        }
+      }
+    }
+  }

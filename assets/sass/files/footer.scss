@@ -1,0 +1,133 @@
+footer {
+	background-color: #000;
+	@include mob-only {
+		padding-top: var(--space-2)!important;
+	}
+	.footer_inner {
+		@include flex-between;
+		* {
+			color: #fff;
+			font-family: Secondary;
+		}
+		h4 {
+			color: var(--color-1);
+			text-transform: uppercase;
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+		ul {
+			@include clean-list;
+			li {
+				font-size: 16px;
+				&:not(:last-child) {
+					margin-bottom: 10px;
+				}
+			}
+		}
+		.col {
+			&:not(:last-child) {
+				padding-right: 4rem;
+			}
+			&:first-child { // Logo and Info
+				width: 22%;
+				.image {
+					max-width: 25rem;
+				}
+				.location, .email {
+					font-size: 16px;
+					padding-left: 25px;
+					background-repeat: no-repeat;
+					background-position: center left;
+					margin-top: 27px;
+					margin-bottom: 0;
+				}
+				.location {
+					background-image: url(../icons/pin.svg);
+				}
+				.email {
+					background-image: url(../icons/email.svg);
+				}
+				.socials {
+					display: flex;
+					align-items: center;
+					margin-top: 4rem;
+					a {
+						margin-right: 3rem;
+						svg {
+							height: 33px;
+							width: auto;
+							path {
+								fill: var(--color-1);
+							}
+						}
+					}
+				}
+			}
+			&:nth-child(2) { // Apparel Menu
+				width: 14%;
+			}
+			&:nth-child(3) { // Equipment Menu
+				width: 14%;
+			}
+			&:nth-child(4) { // About Menu
+				width: 14%;
+			}
+			&:nth-child(5) { // Contact Menu
+				width: 14%;
+			}
+			&:nth-child(6) { // Newsletter
+				width: 22%;
+				h4 {
+					color: #fff;
+				}
+				p {
+					font-size: 16px;
+				}
+				input {
+					font-size: 16px;
+					min-height: 47px;
+					padding-left: 15px;
+				}
+				a {
+					background-color: var(--color-1);
+					color: var(--color-3);
+					font-size: 16px;
+					border-radius: 14px;
+					padding: 15px 25px;
+					display: inline-flex;
+					text-transform: uppercase;
+					font-weight: 700;
+					font-family: Secondary;
+					margin-top: 20px;
+				}
+			}
+			@include limbo-only {
+				width: 30%!important;
+				margin-bottom: 32px;
+			}
+			@include tab-only {
+				width: 48%!important;
+				margin-bottom: 32px;
+			}
+			@include mob-only {
+				margin-bottom: 24px;
+				&:first-child, &:last-child {
+					width: 100%;
+				}
+				&:not(:first-child):not(:last-child) {
+					width: 48%;
+				}
+			}
+		}
+	}
+	.footer_bottom {
+		text-align: center;
+		padding-top: var(--space-4);
+		padding-bottom: 5rem;
+		p {
+			font-size: 16px;
+			color: #8E8E8E;
+			margin-bottom: 0;
+		}
+	}
+}

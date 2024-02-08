@@ -1,0 +1,86 @@
+.st_products {
+	.st_products_intro {
+		max-width: var(--max-width-narrow);
+		margin-inline: auto;
+	}
+	.st_intro {
+		text-align: center;
+	}
+	.intro_title {
+		color: #fff;
+		margin-bottom: var(--title-space-2);
+	}
+	.product_cards {
+		@include flex-between;
+		margin-top: var(--space-3);
+		.product_card {
+			width: 250px;
+			max-width: 22%;
+			text-align: center;
+			margin-bottom: var(--space-4);
+			@include tab-max {
+				width: 48%;
+				max-width: 48%;
+			}
+			.card_icon {
+				height: 43px;
+				margin-bottom: 3rem;
+			}
+			img {
+				object-fit: contain;
+			}
+			.card_title {
+				color: #fff;
+				font-weight: 400;
+			}
+		}
+	}
+}
+
+.st_block_products {
+	@include flex-between;
+	.st_product_left, .st_product_right {
+		width: 49.5%;
+		@include flex-center;
+		aspect-ratio: 855 / 704;
+		position: relative;
+		@include tab-max {
+			width: 100%;
+		}
+	}
+	.st_product_inner {
+		@include flex-col;
+		align-items: center;
+		justify-content: center;
+	}
+	.icon {
+		width: 50px;
+	}
+	.st_block_product_title {
+		font-size: 10rem;
+		line-height: 1.5;
+		color: #fff;
+		text-shadow: 0px 7px 6px rgba(0, 0, 0, 0.16);
+		@include mob-only {
+			font-size: 6rem;
+		}
+	}
+}
+
+.home_bg_wrapper {
+	position: relative;
+	&::before {
+		content: "";
+		background-image: url(/wp-content/uploads/2023/12/background-wrap-scaled.jpg);
+		z-index: -2;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		background-size: 100% auto;
+		background-repeat: repeat;
+	}
+}

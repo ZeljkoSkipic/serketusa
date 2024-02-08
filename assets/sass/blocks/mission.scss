@@ -1,0 +1,35 @@
+.st_mission {
+	@include mob-only {
+		padding-bottom: 0
+	}
+}
+.st_mission_inner {
+	@include flex-center;
+	@include tab-max {
+		flex-direction: column-reverse;
+		.st_mission_right  {
+			padding-bottom: var(--space-3);
+		}
+	}
+	> div {
+		width: 50%;
+		@include tab-max {
+			width: 100%;
+		}
+		@include limbo-min {
+			.image {
+				box-shadow: 24px 26px 17px rgba(0, 0, 0, 0.16);
+			}
+		}
+	}
+	.st_mission_right {
+		padding-inline: var(--space-3);
+		.intro_title  {
+			color: #fff;
+			margin-bottom: var(--title-space-1);
+		}
+		.intro_text {
+			color: #fff;
+		}
+	}
+}

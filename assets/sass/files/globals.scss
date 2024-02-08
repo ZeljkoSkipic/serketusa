@@ -1,0 +1,71 @@
+.c-wide {
+	width: var(--site-width);
+	max-width: var(--max-width-wide);
+	margin-inline: auto;
+}
+
+.c-narrow {
+	width: var(--site-width);
+	max-width: var(--max-width-narrow);
+	margin-inline: auto;
+}
+
+.prefix {
+	font-size: var(--font-size-2);
+	color: var(--color-1);
+	line-height: 1.5;
+	margin-bottom: 2rem;
+	font-weight: 400;
+}
+
+.title-1 {
+	font-size: var(--font-size-1);
+	line-height: 1.2;
+}
+
+
+.title-2 {
+	font-size: var(--font-size-2);
+}
+
+.title-3 {
+	font-size: var(--font-size-3);
+}
+
+.title-4 {
+	font-size: var(--font-size-4);
+}
+
+.title-5 {
+	font-size: var(--font-size-5);
+}
+
+.title-6 {
+	font-size: var(--font-size-6);
+}
+
+.st_block {
+	position: relative;
+}
+
+.body-1 {
+	font-size: var(--body-1);
+}
+
+.body-2 {
+	font-size: var(--body-2);
+}
+
+.btns {
+	margin-top: 5rem;
+}
+
+p {
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.st_background-wrapper {
+	position: relative;
+}

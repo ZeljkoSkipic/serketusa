@@ -1,0 +1,48 @@
+@font-face {
+	font-family: Primary;
+	src: url('../fonts/Kanit-Regular.woff2'),
+    url('../fonts/Kanit-Regular.ttf') format('truetype');
+	font-style: normal;
+ 	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Primary;
+	src: url('../fonts/Kanit-SemiBold.woff2'),
+    url('../fonts/Kanit-SemiBold.ttf') format('truetype');
+	font-style: normal;
+ 	font-weight: 600;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Secondary;
+	src: url('../fonts/Inter-Regular.woff2'),
+    url('../fonts/Inter-Regular.ttf') format('truetype');
+	font-style: normal;
+ 	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Secondary;
+	src: url('../fonts/Inter-SemiBold.woff2'),
+    url('../fonts/Inter-SemiBold.ttf') format('truetype');
+	font-style: normal;
+ 	font-weight: 600;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Secondary;
+	src: url('../fonts/Inter-Bold.woff2'),
+    url('../fonts/Inter-Bold.ttf') format('truetype');
+	font-style: normal;
+ 	font-weight: 700;
+	font-display: swap;
+}
+
+* {
+	font-family: Primary, system-ui, sans-serif;
+}

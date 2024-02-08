@@ -1,0 +1,55 @@
+.st_testimonials {
+	@include mob-only {
+		padding-top: var(--space-2);
+	}
+	.st_intro {
+		text-align: center;
+	}
+	.intro_title {
+		color: #fff;
+	}
+}
+.st_testimonials_inner {
+	@include flex-between;
+}
+.st_testimonial {
+	width: 47%;
+	background-color: #fff;
+	border-radius: 3.2rem;
+	padding: var(--space-2) 6rem var(--space-4);
+	background-image: url(../icons/quote.svg);
+	background-repeat: no-repeat;
+	background-position: top 6.7rem left 6rem;
+	box-shadow: 13px 15px 11px rgba(0, 0, 0, 0.15);
+	margin-bottom: var(--space-4);
+	@include tab-max {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	@include tab-max {
+		width: 100%;
+	}
+	@include limbo-only {
+		background-size: 7rem;
+	}
+	@include tab-only {
+		background-size: 5rem;
+	}
+	@include mob-only {
+		padding-top: 70px;
+		background-size: 3rem;
+	}
+	.text {
+		font-size: 2.8rem;
+		line-height: 1.57;
+		margin-bottom: 6.7rem;
+	}
+	span {
+		display: flex;
+	}
+	.position {
+		color: var(--color-1);
+		margin-top: 1.5rem;
+	}
+}

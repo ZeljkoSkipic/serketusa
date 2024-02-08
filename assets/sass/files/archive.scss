@@ -1,0 +1,121 @@
+.page-header {
+	position: relative;
+	.archive_hero_background {
+		@include abs;
+		z-index: -1;
+		height: 100%;
+	}
+
+	.page-title {
+		color: var(--color-1);
+	}
+	.page-header-description, .term-description {
+		color: #fff;
+		font-size: var(--body-1)
+	}
+}
+
+
+	.products {
+		@include flex-between;
+		@include clean-list;
+		&.columns-4 {
+			.product {
+				@include limbo-min {
+					width: 23%;
+				}
+			}
+		}
+		&.columns-3 {
+			.product {
+				@include limbo-min {
+					width: 31%;
+				}
+			}
+		}
+		&.columns-2 {
+			.product {
+				@include limbo-min {
+					width: 48%;
+				}
+			}
+		}
+		.product {
+			margin-bottom: var(--space-4);
+			position: relative;
+			@include tab-only {
+				width: 48%;
+			}
+			@include mob-only {
+				width: 100%;
+			}
+			.onsale {
+				position: absolute;
+				z-index: 9;
+				background-color: var(--color-1);
+				padding: 7.5px 30px;
+				border-radius: 20px;
+				font-size: 20px;
+				line-height: 1;
+				top: 15px;
+				left: 15px;
+				pointer-events: none;
+				color: #000;
+				box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.16);
+			}
+			figure {
+				aspect-ratio: 590 / 610;
+				box-sizing: border-box;
+				margin-bottom: 5.5rem;
+			}
+			.attachment-woocommerce_thumbnail, .woocommerce-placeholder {
+				margin-bottom: 3.5rem;
+			}
+			img {
+				object-fit: contain;
+			}
+			.product-swatches {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				span {
+					@include color-swatch;
+					width: 3.2rem;
+					height: 3.2rem;
+					&:not(:last-child) {
+						margin-right: 15px;
+					}
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+			}
+			.woocommerce-loop-category__title, .woocommerce-loop-product__title {
+				@include product-grid-title;
+				margin-bottom: 2.5rem;
+			}
+			.price {
+				font-size: 24px;
+				color: #000;
+				display: flex;
+				justify-content: center;
+				del {
+					color: #AFAFAF;
+					bdi {
+						color: #AFAFAF
+					}
+				}
+
+				ins {
+					text-decoration: none;
+					bdi {
+						color: #000000;
+						text-decoration: none;
+					}
+				}
+			}
+			.view-more, .button {
+				@include woo-more-btn;
+			}
+		}
+	}

@@ -1,0 +1,28 @@
+.st_counters {
+
+}
+.st_counters_inner {
+	@include flex-between;
+	.st_counter {
+		width: 25%;
+		padding: 14px var(--space-4);
+		&:not(:last-child) {
+			border-right: 2px solid #A7A7A7;
+		}
+		.counter_number {
+			color: var(--color-1);
+			margin-bottom: 2rem;
+		}
+		.counter_text {
+			color: #A2A2A2;
+			margin-top: 2rem;
+		}
+		@include tab-max {
+			width: 48%;
+			margin-bottom: 4%;
+			&:nth-child(2) {
+				border: none;
+			}
+		}
+	}
+}

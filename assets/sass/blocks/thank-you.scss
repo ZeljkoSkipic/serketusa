@@ -1,0 +1,31 @@
+.st_thank-you {
+	@include flex;
+	@include tab-max {
+		flex-direction: column;
+	}
+	@include limbo-min {
+		> div {
+			width: 50%;
+		}
+	}
+	.st_ty_left {
+		padding: var(--space-2);
+		@include flex-col;
+		margin-block: auto;
+		@include limbo-only {
+			padding: var(--space-4);
+		}
+		@include tab-max {
+			padding: var(--space-3);
+		}
+		.title-1 {
+			color: var(--color-1)
+		}
+		.ty_text {
+			color: #626262;
+		}
+	}
+	.st_ty_right {
+		line-height: 0;
+	}
+}

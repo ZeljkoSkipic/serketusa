@@ -1,0 +1,49 @@
+{
+    "key": "group_658de18f328a7",
+    "title": "Block: Background Wrapper",
+    "fields": [
+        {
+            "key": "field_658de18f0e575",
+            "label": "Wrapper Background",
+            "name": "wrapper_background",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_6338240f11ade",
+                "field_6338240411add",
+                "field_63906f8e46e8d"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/bg-wrap"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1703797216
+}

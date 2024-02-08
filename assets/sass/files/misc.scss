@@ -1,0 +1,39 @@
+.error_404 {
+	max-width: 970px;
+}
+.error_inner {
+	@include flex;
+	padding-block: 20rem;
+	@include mob-only {
+		flex-direction: column;
+	}
+	h1 {
+		color: var(--color-1);
+		margin-bottom: 15px;
+	}
+	.left {
+		@include tab-min {
+			width: 40%;
+		}
+		@include mob-only {
+			margin-bottom: var(--space-4);
+		}
+		img {
+			width: auto;
+			max-width: 100%;
+		}
+		padding-right: var(--space-2);
+		@include tab-only {
+			padding-right: var(--space-4);
+		}
+	}
+	.right {
+		@include tab-min {
+			width: 60%;
+		}
+		p {
+			margin-block: 0 14px;
+			color: #626262;
+		}
+	}
+}

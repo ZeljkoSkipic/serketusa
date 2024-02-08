@@ -1,0 +1,9 @@
+.st_background-wrapper {
+	border:  2px dashed rgba(0,0,0,.5);
+	border-radius: 16px;
+	padding-block: 16px;
+}
+
+.block_bg {
+	display: none;
+}
