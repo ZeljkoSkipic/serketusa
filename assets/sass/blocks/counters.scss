@@ -6,12 +6,20 @@
 	.st_counter {
 		width: 25%;
 		padding: 14px var(--space-4);
+		@include limbo-min {
+			&:first-child {
+				padding-left: 0;
+			}
+		}
 		&:not(:last-child) {
 			border-right: 2px solid #A7A7A7;
 		}
 		.counter_number {
 			color: var(--color-1);
-			margin-bottom: 2rem;
+			margin-bottom: 1.8rem;
+		}
+		p {
+			margin-top: 0;
 		}
 		.counter_text {
 			color: #A2A2A2;

@@ -14,7 +14,7 @@ if ( ! empty( $block['className'] ) ) {
 	<div class="c-wide">
 		<?php get_template_part('components/intro'); ?>
 	</div>
-	<div class="st_testimonials_inner c-wide space_4_0">
+	<div class="st_testimonials_inner c-narrow space_4_0">
 		<?php
 
 		if( have_rows('testimonials') ): ?>

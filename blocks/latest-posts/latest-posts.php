@@ -32,16 +32,21 @@ if ( ! empty( $block['className'] ) ) {
 				$query->the_post();
 				$category = get_the_category();
 				$title = get_the_title();
-				$excerpt = wp_trim_words( get_the_content(), 8, '...' ); ?>
+				$post_link = get_the_permalink();
+				$excerpt = wp_trim_words( get_the_content(), 20, '...' ); ?>
 
 				<div class="latest_post">
-					<?php the_post_thumbnail();
-					?>
+					<a href="<?php echo $post_link; ?>">
+						<?php the_post_thumbnail();	?>
+					</a>
 					<div class="lp_content">
 						<?php
 						echo '<span class="lp_category">' . $category[0]->name . '</span>'; ?>
-						<h3><?php the_title(); ?> </h3>
+
+							<h3 class="title-2"><a href="<?php echo $post_link; ?>"><?php the_title(); ?></a></h3>
+
 						<?php echo '<p>' . esc_html( $excerpt ) . '</p>'; ?>
+						<a class="lp_read_more" href="<?php echo $post_link; ?>">Read More</a>
 					</div>
 				</div>
 

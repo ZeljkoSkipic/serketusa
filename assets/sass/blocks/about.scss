@@ -2,6 +2,9 @@
 	@include mob-only {
 		padding-top: var(--space-3)
 	}
+	.intro_title {
+		text-transform: uppercase
+	}
 	.st_about_inner {
 		@include flex-between;
 		.st_about_left {
@@ -9,6 +12,9 @@
 		}
 		.st_about_right {
 			width: 49%;
+		}
+		.btns {
+			margin-top: 24px;
 		}
 		@include mob-only {
 			.st_about_left, .st_about_right {

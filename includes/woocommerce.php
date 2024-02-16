@@ -10,6 +10,17 @@ add_theme_support( 'wc-product-gallery-zoom' );
 add_theme_support( 'wc-product-gallery-lightbox' );
 add_theme_support( 'wc-product-gallery-slider' );
 
+add_filter( 'woocommerce_single_product_carousel_options', 'st_update_woo_flexslider_options' );
+
+// Single Product thumbnail navigation
+
+function st_update_woo_flexslider_options( $options ) {
+
+    $options['directionNav'] = true;
+
+    return $options;
+}
+
 
 
 // Remove default WooCommerce styles

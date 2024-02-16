@@ -7,6 +7,7 @@
 	}
 	.intro_title {
 		color: #fff;
+		margin-bottom: 0
 	}
 }
 .st_testimonials_inner {
@@ -21,7 +22,7 @@
 	background-repeat: no-repeat;
 	background-position: top 6.7rem left 6rem;
 	box-shadow: 13px 15px 11px rgba(0, 0, 0, 0.15);
-	margin-bottom: var(--space-4);
+	margin-bottom: 4.5rem;
 	@include tab-max {
 		&:last-child {
 			margin-bottom: 0;
@@ -41,15 +42,14 @@
 		background-size: 3rem;
 	}
 	.text {
-		font-size: 2.8rem;
-		line-height: 1.57;
-		margin-bottom: 6.7rem;
+		margin-bottom: 4.5rem;
 	}
 	span {
 		display: flex;
+		font-size: 20px;
 	}
 	.position {
 		color: var(--color-1);
-		margin-top: 1.5rem;
+		margin-top: 10px;
 	}
 }

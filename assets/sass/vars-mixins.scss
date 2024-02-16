@@ -1,6 +1,6 @@
 :root {
-	--font-size-1: 4.8rem;
-	--font-size-2: 3.2rem;
+	--font-size-1: 34px;
+	--font-size-2: 24px;
 
 	--font-size-3: 4rem;
 	--font-size-4: 3rem;
@@ -9,13 +9,13 @@
 
 	--line-height: 1.33;
 
-	--space-1: 20rem;
+	--space-1: 16rem;
 	--space-2: 15rem;
 	--space-3: 10rem;
-	--space-4: 8rem;
+	--space-4: 6.5rem;
 
-	--title-space-1: 4rem;
-	--title-space-2: 3.2rem;
+	--title-space-1: 32px;
+	--title-space-2: 24px;
 
 	--title-space-3: 3rem;
 	--title-space-4: 2rem;
@@ -28,8 +28,8 @@
 
 	--st: .3s all;
 
-	--body-1: 24px;
-	--body-2: 20px;
+	--body-1: 19px;
+	--body-2: 16px;
 
 	@media (min-width: 797.6px) /* Insert the same width as limbo-min variable */ {
 	  --site-width: 90%;
@@ -350,13 +350,13 @@
 // Buttons
 
 @mixin btn {
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1.5;
 	padding: 8px 20px;
 	border-radius: 14px;
-	min-width: 170px;
+	width: fit-content;
 	max-width: 100%;
-	min-height: 56px;
+
 	text-transform: uppercase;
 	display: inline-flex;
 	align-items: center;
@@ -375,12 +375,16 @@
 	@include btn;
 	background-color: var(--color-3);
 	color: var(--color-1);
+	min-width: 125px;
+	min-height: 44px;
 }
 
 @mixin btn-2 {
 	@include btn;
 	background-color: var(--color-1);
 	color: var(--color-3);
+	min-width: 17rem;
+	min-height: 56px;
 	&:not(:first-of-type) {
 		@include tab-min {
 			margin-left: 2rem;
@@ -455,18 +459,18 @@ html {
 		--space-4: 6rem;
 		--body-1: 18px;
 		--body-2: 20px;
-		body {
-			font-size: 18px;
-		}
 	}
 }
 
 
 @mixin product-grid-title {
-    font-size: 3.2rem;
+    font-size: 24px;
     color: #000;
     text-align: center;
     text-transform: uppercase;
+	margin-bottom: 0;
+	max-width: 90%;
+	margin-inline: auto;
 }
 @mixin color-swatch {
 	width: 4.4rem;
@@ -485,6 +489,7 @@ html {
 	display: block;
 	text-align: center;
 	color: var(--color-1);
-	font-size: 2.5rem;
+	font-size: 16;
 	text-transform: uppercase;
+	width: 100%;
 }

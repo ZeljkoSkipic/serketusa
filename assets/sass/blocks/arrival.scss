@@ -2,6 +2,8 @@
 	@include flex-col;
 	align-items: center;
 	justify-content: center;
+	aspect-ratio: 192 / 63;
+	width: 100%;
 	.block_bg {
 		img {
 			object-position: center left;
@@ -9,7 +11,7 @@
 	}
 	.st_arrival_content {
 		@include flex;
-		width: 45%;
+		width: 32%;
 		justify-content: center;
 		margin-left: auto;
 		@include tab-max {
@@ -21,8 +23,6 @@
 		text-align: center;
 	}
 	.intro_title {
-		font-size: 6.4rem;
-		line-height: 1.04;
 		text-transform: uppercase;
 		color: var(--color-1);
 		margin-bottom: 0;

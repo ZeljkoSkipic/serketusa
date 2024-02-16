@@ -4,7 +4,7 @@ $anchor = '';
 if ( ! empty( $block['anchor'] ) ) {
 	$anchor = 'id="' . esc_attr( $block['anchor'] ) . '" ';
 }
-$class = 'st_block st_mission space_4_2';
+$class = 'st_block st_mission space_0_2';
 if ( ! empty( $block['className'] ) ) {
 	$class .= ' ' . $block['className'];
 }
@@ -22,7 +22,7 @@ if ( ! empty( $block['className'] ) ) {
 		</div>
 		<div class="st_mission_right body-1">
 			<?php get_template_part('components/intro'); ?>
-			<div class="intro_text"><?php the_field('text'); ?></div>
+			<div class="intro_text body-2"><?php echo wp_kses_post( get_field('text') ); ?></div>
 			<?php get_template_part('components/buttons'); ?>
 		</div>
 

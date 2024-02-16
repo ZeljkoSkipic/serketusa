@@ -3,6 +3,7 @@
 		text-align: center;
 	}
 	.intro_title {
+		margin-bottom: 0;
 		color: #fff;
 	}
 	.btns {
@@ -26,26 +27,37 @@
 		}
 		.attachment-post-thumbnail {
 			border-radius: 20px 20px 0 0;
-		}
-		.lp_content {
-			padding: 5rem 5rem var(--space-3) 5rem;
+			aspect-ratio: 10 / 6;
 		}
 		.lp_category {
-			display: flex;
+			font-size: 16px;
+			text-transform: uppercase;
+			color: #646464;
+		}
+		.lp_content {
+			padding: 25px 5rem var(--space-4) 5rem;
+			@include flex-col;
 			font-size: 17px;
 			font-family: Secondary;
 			font-weight: 400;
-			text-transform: uppercase;
+
 		}
 		h3 {
-			font-size: 3.4rem;
-			line-height: 3.8rem;
 			margin-top: 3.5rem;
+			text-transform: uppercase;
+			a {
+				color: #000;
+			}
 		}
 		p {
-			font-size: 21px;
 			font-family: Secondary;
-			margin-top: 4rem;
+		}
+		.lp_read_more {
+			color: var(--color-1);
+			text-decoration: underline;
+			text-transform: uppercase;
+			margin-top: 3.5rem;
+			display: flex;
 		}
 	}
 }

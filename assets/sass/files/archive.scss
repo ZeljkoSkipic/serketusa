@@ -11,7 +11,7 @@
 	}
 	.page-header-description, .term-description {
 		color: #fff;
-		font-size: var(--body-1)
+		font-size: var(--body-2)
 	}
 }
 
@@ -49,6 +49,9 @@
 			@include mob-only {
 				width: 100%;
 			}
+			.woocommerce-LoopProduct-link {
+				width: 100%;
+			}
 			.onsale {
 				position: absolute;
 				z-index: 9;
@@ -64,15 +67,14 @@
 				box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.16);
 			}
 			figure {
-				aspect-ratio: 590 / 610;
+				aspect-ratio: 48 / 50;
 				box-sizing: border-box;
-				margin-bottom: 5.5rem;
-			}
-			.attachment-woocommerce_thumbnail, .woocommerce-placeholder {
-				margin-bottom: 3.5rem;
-			}
-			img {
-				object-fit: contain;
+				margin-bottom: 20px;
+				width: 100%;
+				img {
+					height: 100%;
+					width: 100%;
+				}
 			}
 			.product-swatches {
 				display: flex;
@@ -92,7 +94,7 @@
 			}
 			.woocommerce-loop-category__title, .woocommerce-loop-product__title {
 				@include product-grid-title;
-				margin-bottom: 2.5rem;
+				margin-bottom: 10px;
 			}
 			.price {
 				font-size: 24px;

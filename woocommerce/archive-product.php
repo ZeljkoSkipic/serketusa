@@ -31,6 +31,7 @@ get_header();
  if so it loads a different template of content-product.php
 
  changed header classes
+ Removed Pagination
 
  */
 
@@ -66,7 +67,7 @@ $parent_category = get_term_by('slug', 'cat2', 'product_cat');
 		?>
 	</div>
 </header>
-<div class="c-narrow space_2">
+<div class="c-wide space_2">
 	<?php
 	if ( woocommerce_product_loop() ) {
 
@@ -99,7 +100,7 @@ $parent_category = get_term_by('slug', 'cat2', 'product_cat');
 		 *
 		 * @hooked woocommerce_pagination - 10
 		 */
-		do_action( 'woocommerce_after_shop_loop' );
+		// do_action( 'woocommerce_after_shop_loop' );
 	} else {
 		/**
 		 * Hook: woocommerce_no_products_found.
