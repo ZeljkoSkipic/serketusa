@@ -121,6 +121,7 @@ function register_acf_blocks() {
 	register_block_type( __DIR__ . '/../blocks/counters' );
 	register_block_type( __DIR__ . '/../blocks/thank-you' );
 	register_block_type( __DIR__ . '/../blocks/basic-section' );
+	register_block_type( __DIR__ . '/../blocks/page-intro' );
 }
 
 

@@ -23,7 +23,6 @@
 defined('ABSPATH') || exit;
 
 global $product;
-
 $attribute_keys  = array_keys($attributes);
 $variations_json = wp_json_encode($available_variations);
 $variations_attr = function_exists('wc_esc_json') ? wc_esc_json($variations_json) : _wp_specialchars($variations_json, ENT_QUOTES, 'UTF-8', true);
@@ -43,13 +42,14 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
 				foreach ($attributes as $attribute_name => $options) :
 					$attr_id = wc_attribute_taxonomy_id_by_name($attribute_name);
 					$attribute_swatches_type = get_option("wc_attribute_swatched-type-$attr_id");
+					
 				?>
 					<tr class="st-swatch-<?php echo $attribute_swatches_type; ?>">
 						<th class="label"><label for="<?php echo esc_attr(sanitize_title($attribute_name)); ?>"><?php echo wc_attribute_label($attribute_name); // WPCS: XSS ok. 																				?></label></th>
 						<td class="value">
 
 							<?php
-							do_action('product_swatches',  $options, $attribute_name, $attribute_swatches_type);
+							do_action('product_swatches',  $options, $attribute_name, $attribute_swatches_type, $product);
 							wc_dropdown_variation_attribute_options(
 								array(
 									'options'   => $options,

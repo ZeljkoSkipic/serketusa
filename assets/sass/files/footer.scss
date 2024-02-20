@@ -29,7 +29,7 @@ footer {
 				padding-right: 4rem;
 			}
 			&:first-child { // Logo and Info
-				width: 22%;
+				width: 25%;
 				.image {
 					max-width: 25rem;
 				}
@@ -73,10 +73,13 @@ footer {
 				width: 14%;
 			}
 			&:nth-child(5) { // Contact Menu
-				width: 14%;
+				width: 10%;
+				@include limbo-max {
+					display: none;
+				}
 			}
 			&:nth-child(6) { // Newsletter
-				width: 22%;
+				width: 23%;
 				h4 {
 					color: #fff;
 				}
@@ -111,12 +114,7 @@ footer {
 			}
 			@include mob-only {
 				margin-bottom: 24px;
-				&:first-child, &:last-child {
-					width: 100%;
-				}
-				&:not(:first-child):not(:last-child) {
-					width: 48%;
-				}
+				width: 100%!important;
 			}
 		}
 	}

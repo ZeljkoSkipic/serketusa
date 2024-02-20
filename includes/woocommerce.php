@@ -60,3 +60,16 @@ require get_template_directory() . '/includes/woocommerce/swatches.php';
 // WooCommerce Quantity
 
 require get_template_directory() . '/includes/woocommerce/quantity.php';
+
+// Change Read More to View More
+
+function custom_woocommerce_product_add_to_cart_text( $text ) {
+
+    if( 'Read more' == $text ) {
+        $text = __( 'View More', 'woocommerce' );
+    }
+
+    return $text;
+
+}
+add_filter( 'woocommerce_product_add_to_cart_text' , 'custom_woocommerce_product_add_to_cart_text' );

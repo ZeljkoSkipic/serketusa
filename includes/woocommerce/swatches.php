@@ -130,15 +130,29 @@ function woo_swatches_term_field_save($term_id, $tt_id, $taxonomy, $update, $arg
 
 // Add Swatches action
 
-add_action('product_swatches', 'add_swatches', 10, 3);
+add_action('product_swatches', 'add_swatches', 10, 4);
 
-function add_swatches($options, $attribute_name, $attribute_swatches_type)
+function add_swatches($options, $attribute_name, $attribute_swatches_type, $product)
 {
+    $variations = $product->get_available_variations();
+  
+    
     ?>
     <div class="product-swatches">
         <?php
+      
         if ($options) {
             foreach ($options as $option) {
+                $valid = false;
+                foreach($variations as $variation) {
+                    if(in_array($option, $variation['attributes'])) {
+                        $valid = true;
+                        break;
+                    }
+                }
+
+                if(!$valid) continue;
+
                 $term = get_term_by('slug', $option, $attribute_name);
                 if ($attribute_swatches_type == 'name') {
         ?>

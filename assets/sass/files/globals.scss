@@ -79,3 +79,14 @@ p {
 .st_background-wrapper {
 	position: relative;
 }
+
+
+.tos {
+	h3 {
+		color: var(--color-1);
+		font-size: 24px;
+	}
+	a {
+		color: var(--color-1)
+	}
+}

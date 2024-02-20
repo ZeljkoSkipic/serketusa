@@ -21,11 +21,11 @@
         },
         {
             "key": "field_65940175559f0",
-            "label": "Archive Hero Background",
+            "label": "Hero Background",
             "name": "archive_hero_background",
             "aria-label": "",
             "type": "image",
-            "instructions": "",
+            "instructions": "Used on Archive pages and on Page Intro Block.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -194,5 +194,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1707225663
+    "modified": 1708087810
 }

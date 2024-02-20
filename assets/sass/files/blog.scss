@@ -17,7 +17,7 @@
 		}
 		.post_intro {
 			.attachment-post-thumbnail {
-				aspect-ratio: 10 / 6;
+				aspect-ratio: 1088 / 612;
 			}
 			img {
 				object-fit: cover;
@@ -80,30 +80,56 @@
 					color: #A2A2A2;
 					background-image: url(../icons/comment.svg);
 					background-repeat: no-repeat;
-					background-position: bottom 5px left;
+					background-position: center left;
 					padding-left: 40px;
+					background-size: auto 90%;
 				}
+			}
+		}
+		.st_share {
+			@include clean-list;
+			display: flex;
+			align-items: center;
+			li {
+				margin-left: 25px;
+				position: relative;
+				a {
+					cursor: pointer;
+				}
+			}
+			.result {
+				position: absolute;
+				bottom: -20px;
+				width: 120px;
+				left: -48px;
+				font-size: 13px;
+				text-align: center;
 			}
 		}
 		.post_related {
 			padding-block: var(--space-4) calc(var(--space-4) - 1em);
 			border-bottom: 1px solid #707070;
+			h2 {
+				margin-bottom: 4.4rem;
+			}
 		}
 		.post_related_inner {
 			@include flex-between;
 			.related-post {
 				width: 30%;
 				.post-thumbnail {
-					aspect-ratio: 10 / 6;
+					aspect-ratio: 1088 / 612;
 					margin-bottom: 3rem;
 					img {
 						height: 100%;
 					}
 				}
 				.post-title {
-					font-size: 22px;
-					color: #000;
+					font-size: 20px;
 					margin-bottom: 20px;
+					a {
+						color: #000;
+					}
 				}
 				.post-date {
 					font-size: 16px;
@@ -120,8 +146,10 @@
 				min-height: 12rem;
 				padding-top: 5rem;
 				&.depth-1 {
-					border-bottom: 1px solid #707070;
 					padding-bottom: 5rem;
+					&:not(:last-child) {
+						border-bottom: 1px solid #707070;
+					}
 				}
 				.comment:not(:last-child) {
 					border-bottom: 1px solid #707070;
@@ -210,11 +238,13 @@
 				}
 			}
 			.comment-respond {
-				padding-block: 5rem;
+				padding-bottom: 5rem;
+				max-width: 70rem;
 			}
 			.comment-reply-title {
 				display: flex;
 				align-items: center;
+				font-size: 24px;
 				a {
 					font-size: 22px;
 					margin-left: 16px;
@@ -231,7 +261,12 @@
 			}
 			.comment-form {
 				@include flex-between;
-				label:not([for="wp-comment-cookies-consent"]) {
+				label[for="author"], label[for="email"] {
+					margin-bottom: 22px;
+					display: flex;
+					font-weight: 600;
+				}
+				label[for="comment"] {
 					display: none;
 				}
 
@@ -245,18 +280,18 @@
 					margin-bottom: 0;
 				}
 				textarea {
-					padding: 36px 22px;
+					padding: 17px 22px;
 					box-sizing: border-box;
-					height: 20rem;
+					height: 80px;
 				}
 				.comment-form-author, .comment-form-email {
 					width: 49%;
 				}
 				input {
-					padding: 17px 22px;
+					padding: 10px 22px;
 				}
 				textarea, input {
-					font-size: 22px;
+					font-size: 16px;
 				}
 				.comment-form-cookies-consent {
 					display: flex;
@@ -273,6 +308,7 @@
 				}
 				.form-submit {
 					width: 100%;
+					margin-top: 5rem;
 					.submit {
 						width: fit-content;
 						@include btn-1;
@@ -296,15 +332,63 @@
 
 /* Archive */
 
+.blog {
+	.nav-links {
+		@include flex;
+		.page-numbers {
+			color: #000;
+			font-weight: 600;
+			font-size: 16px;
+			border: 1px solid #000;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			padding: 10px;
+			box-sizing: border-box;
+			border-radius: 14px;
+			&.current {
+				color: #b2b2b2;
+			}
+		}
+		.prev, .next {
+			min-width: 18rem;
+			min-height: 56px;
+			@include tab-max {
+				display: none;
+			}
+		}
+		.prev {
+			margin-right: auto;
+		}
+		.next {
+			margin-left: auto;
+			margin-right: 0;
+		}
+		.page-numbers:not(.prev):not(.next) {
+			min-width: 46px;
+			margin-inline: 5px;
+		}
+	}
+}
 .latest-post {
+	figure {
+		img {
+			aspect-ratio: 1088 / 612;
+		}
+	}
 	.title-2 {
 		margin-top: 3rem;
+		margin-bottom: 10px;
 		a {
 			color: #000;
 		}
 	}
+	.post_date {
+		display: flex;
+		margin-bottom: 3rem;
+	}
 	.latest_post_excerpt {
-		padding-bottom: 4rem;
+		padding-bottom: 2.5rem;
 	}
 	.latest_post_meta {
 		border-bottom: 1px solid #707070;
@@ -314,7 +398,9 @@
 	.lp_read_more {
 		color: var(--color-1);
 		display: flex;
-		justify-content: center;
+		text-transform: uppercase;
+		text-decoration: underline;
+		margin-bottom: 4rem;
 	}
 }
 
@@ -330,14 +416,14 @@
 	@include flex-between;
 	article {
 		@include tab-min {
-			width: 48%;
+			width: 45%;
 		}
 		margin-bottom: 5rem;
 		@include flex-col;
 		figure {
 			margin-bottom: 5rem;
 			img {
-				aspect-ratio: 10 / 6;
+				aspect-ratio: 1088 / 612;
 			}
 		}
 		.post_categories {
@@ -401,8 +487,7 @@ aside {
 	@include limbo-min {
 		width: 25%;
 		.item_w_bg {
-			padding: 5rem 3rem;
-			background-color: #E4E4E4;
+
 		}
 		ul {
 			li {
@@ -452,11 +537,10 @@ aside {
 	ul {
 		@include clean-list;
 		li {
-			padding-inline: 10px;
 			a {
 				padding-block: 10px;
 				display: flex;
-				font-size: 20px;
+				font-size: 16px;
 				color: #000;
 			}
 		}

@@ -11,113 +11,125 @@
 	}
 	.page-header-description, .term-description {
 		color: #fff;
-		font-size: var(--body-2)
+		font-size: 20px;
 	}
 }
 
-
-	.products {
-		@include flex-between;
-		@include clean-list;
-		&.columns-4 {
-			.product {
-				@include limbo-min {
-					width: 23%;
-				}
-			}
-		}
-		&.columns-3 {
-			.product {
-				@include limbo-min {
-					width: 31%;
-				}
-			}
-		}
-		&.columns-2 {
-			.product {
-				@include limbo-min {
-					width: 48%;
-				}
-			}
-		}
+.products {
+	@include flex;
+	@include clean-list;
+	&.columns-4 {
 		.product {
-			margin-bottom: var(--space-4);
-			position: relative;
-			@include tab-only {
-				width: 48%;
-			}
-			@include mob-only {
-				width: 100%;
-			}
-			.woocommerce-LoopProduct-link {
-				width: 100%;
-			}
-			.onsale {
-				position: absolute;
-				z-index: 9;
-				background-color: var(--color-1);
-				padding: 7.5px 30px;
-				border-radius: 20px;
-				font-size: 20px;
-				line-height: 1;
-				top: 15px;
-				left: 15px;
-				pointer-events: none;
-				color: #000;
-				box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.16);
-			}
-			figure {
-				aspect-ratio: 48 / 50;
-				box-sizing: border-box;
-				margin-bottom: 20px;
-				width: 100%;
-				img {
-					height: 100%;
-					width: 100%;
+			@include limbo-min {
+				width: 23%;
+				&:not(:nth-child(4n + 4)) {
+					margin-right: calc(8% / 3);
 				}
-			}
-			.product-swatches {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				span {
-					@include color-swatch;
-					width: 3.2rem;
-					height: 3.2rem;
-					&:not(:last-child) {
-						margin-right: 15px;
-					}
-					&:last-child {
-						margin-right: 0;
-					}
-				}
-			}
-			.woocommerce-loop-category__title, .woocommerce-loop-product__title {
-				@include product-grid-title;
-				margin-bottom: 10px;
-			}
-			.price {
-				font-size: 24px;
-				color: #000;
-				display: flex;
-				justify-content: center;
-				del {
-					color: #AFAFAF;
-					bdi {
-						color: #AFAFAF
-					}
-				}
-
-				ins {
-					text-decoration: none;
-					bdi {
-						color: #000000;
-						text-decoration: none;
-					}
-				}
-			}
-			.view-more, .button {
-				@include woo-more-btn;
 			}
 		}
 	}
+	&.columns-3 {
+		.product {
+			@include limbo-min {
+				width: 31%;
+				&:not(:nth-child(3n + 3)) {
+					margin-right: calc(2.5%);
+				}
+			}
+		}
+	}
+	&.columns-2 {
+		.product {
+			@include limbo-min {
+				width: 48%;
+				&:not(:nth-child(even)) {
+					margin-right: 4%;
+				}
+			}
+		}
+	}
+	.product {
+		margin-bottom: var(--space-4);
+		position: relative;
+		@include tab-only {
+			width: 48%;
+			&:not(:nth-child(even)) {
+				margin-right: 4%;
+			}
+		}
+		@include mob-only {
+			width: 100%;
+		}
+		.woocommerce-LoopProduct-link {
+			width: 100%;
+		}
+		.onsale {
+			position: absolute;
+			z-index: 9;
+			background-color: var(--color-1);
+			padding: 7.5px 30px;
+			border-radius: 20px;
+			font-size: 20px;
+			line-height: 1;
+			top: 15px;
+			left: 15px;
+			pointer-events: none;
+			color: #000;
+			box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.16);
+		}
+		figure {
+			aspect-ratio: 48 / 50;
+			box-sizing: border-box;
+			margin-bottom: 20px;
+			width: 100%;
+			img {
+				height: 100%;
+				width: 100%;
+			}
+		}
+		.product-swatches {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			span {
+				@include color-swatch;
+				width: 3.2rem;
+				height: 3.2rem;
+				&:not(:last-child) {
+					margin-right: 15px;
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+		.woocommerce-loop-category__title, .woocommerce-loop-product__title {
+			@include product-grid-title;
+			margin-bottom: 10px;
+		}
+		.price {
+			font-size: 24px;
+			color: #000;
+			display: flex;
+			justify-content: center;
+			del {
+				color: #AFAFAF;
+				margin-right: 8px;
+				bdi {
+					color: #AFAFAF
+				}
+			}
+
+			ins {
+				text-decoration: none;
+				bdi {
+					color: #000000;
+					text-decoration: none;
+				}
+			}
+		}
+		.view-more, .button {
+			@include woo-more-btn;
+		}
+	}
+}

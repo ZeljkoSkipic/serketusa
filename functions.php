@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package s-tier
+ * @package stier
  */
 
 
@@ -39,7 +39,6 @@ function stier_setup() {
 			'apparel' => esc_html__( 'Apparel', 'stier' ),
 			'equipment' => esc_html__( 'Equipment', 'stier' ),
 			'about' => esc_html__( 'About', 'stier' ),
-			'contact' => esc_html__( 'Contact', 'stier' ),
 			)
 	);
 
@@ -129,7 +128,7 @@ add_filter( 'comment_form_defaults', 'stier_comment_form_title_reply' );
 
 function placeholder_author_email_url_form_fields( $fields ) {
 	foreach( $fields as &$field ) {
-	  $field = str_replace( 'id="author"', 'id="author" placeholder="Your Name*"', $field );
+	  $field = str_replace( 'id="author"', 'id="author" placeholder="Full Name*"', $field );
 	  $field = str_replace( 'id="email"', 'id="email" placeholder="Your Email*"', $field );
 	}
 	return $fields;
@@ -139,7 +138,7 @@ function placeholder_author_email_url_form_fields( $fields ) {
  * Comment Form Placeholder Comment Field
  */
 function placeholder_comment_form_field($fields) {
-    $replace_comment = __("Your comment", 'fmc');
+    $replace_comment = __("Add your comments here", 'stier');
 
     $fields['comment_field'] = '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) .
     '</label><textarea id="comment" name="comment" cols="45" rows="8" placeholder="'.$replace_comment.'" aria-required="true"></textarea></p>';

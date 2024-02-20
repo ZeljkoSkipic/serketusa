@@ -39,13 +39,11 @@ $top_posts_query = new WP_Query($args);
 if ($top_posts_query->have_posts()) { ?>
 	<div class="sidebar_item item_w_bg top_posts">
 	<h2 class="title-2">Top Posts</h2>
-	<?php $post_position = 1; // Initialize post position counter
-	echo '<ul>';
+	<?php echo '<ul>';
 	while ($top_posts_query->have_posts()) {
 		$top_posts_query->the_post();
 		// Display the position number and the title
-		echo '<li>' . '<span>' . $post_position . '</span>' . '<a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
-		$post_position++; // Increment the position counter
+		echo '<li>' . '<a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
 	}
 	echo '</ul>';
 	wp_reset_postdata(); ?>

@@ -84,15 +84,7 @@ $email = get_field('email', 'option');
 				?>
 			</div>
 			<div class="col"> <!-- Contact Menu -->
-				<h4><?php the_field('col_5_menu_title', 'option'); ?></h4>
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'contact',
-						'menu_id'        => 'contact-menu',
-					)
-				);
-				?>
+
 			</div>
 
 			<div class="col"> <!-- Newsletter -->

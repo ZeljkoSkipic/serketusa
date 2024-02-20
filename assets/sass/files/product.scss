@@ -14,7 +14,36 @@
 	margin-bottom: 2rem;
 	margin-right: 9px;
 }
-
+.quantity {
+	display: flex;
+	width: 85px;
+	height: 48px;
+	border: 1px solid #000000;
+	input {
+		width: 40px;
+		border: none;
+		text-align: center;
+		outline: none;
+		line-height: 1;
+		font-size: 16px;
+	}
+	button {
+		background-color: transparent;
+		border: none;
+		color: #5C5C5C;
+		cursor: pointer;
+		font-size: 18px;
+		&:active {
+			color: blue;
+		}
+		&.minus {
+			padding-right: 0;
+		}
+		&.plus {
+			padding-left: 0;
+		}
+	}
+}
 
 .single-product {
   	.wc-block-components-notice-banner {
@@ -246,6 +275,11 @@
 				padding-right: 20px;
 				width: 100px;
 				min-width: 100px;
+			}
+		}
+		.sp-am-content {
+			ul {
+				margin-top: 0
 			}
 		}
 	}

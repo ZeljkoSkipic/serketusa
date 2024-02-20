@@ -65,16 +65,17 @@ get_header();
 											<?php the_title(); ?>
 										</a>
 									</h2>
+									<?php the_date( '', '<span class="post_date">', '</span>');?>
 									<div class="latest_post_excerpt body-2">
 										<?php echo wp_trim_words(get_the_excerpt(), 40); ?>
 									</div>
+									<a class="lp_read_more" href="<?php echo $featured_link ?>" title="<?php the_title_attribute(); ?>">Read More</a>
 									<div class="latest_post_meta post_meta">
 										<div class="left">
-											<?php the_date( '', '<span class="post_date">', '</span>');?>
 											<span class="post_comments"><?php comments_number( 'No Comments', '1 Comment', '% Comments' ); ?></span>
 										</div>
 										<div class="right">
-										<a class="lp_read_more" href="<?php echo $featured_link ?>" title="<?php the_title_attribute(); ?>">Read More</a>
+
 										</div>
 									</div>
 								<?php }
@@ -124,8 +125,9 @@ get_header();
 								</article>
 
 								<?php endwhile; ?>
-							<?php the_posts_pagination(); ?>
+
 						</div>
+						<?php the_posts_pagination(); ?>
 					</main>
 					<?php get_sidebar(); ?>
 				<?php endif; ?>
