@@ -8,7 +8,7 @@
 	@include tab-max {
 		flex-direction: column-reverse;
 		.st_mission_right  {
-			padding-bottom: var(--space-3);
+			padding-block: var(--space-3);
 		}
 	}
 	> div {

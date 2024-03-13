@@ -80,8 +80,9 @@ footer {
 			}
 			&:nth-child(6) { // Newsletter
 				width: 23%;
-				h4 {
-					color: #fff;
+				h2 {
+					font-size: 16px;
+					text-transform: uppercase;
 				}
 				p {
 					font-size: 16px;
@@ -91,7 +92,7 @@ footer {
 					min-height: 47px;
 					padding-left: 15px;
 				}
-				a {
+				#mc-embedded-subscribe {
 					background-color: var(--color-1);
 					color: var(--color-3);
 					font-size: 16px;
@@ -102,6 +103,11 @@ footer {
 					font-weight: 700;
 					font-family: Secondary;
 					margin-top: 20px;
+					cursor: pointer;
+					width: fit-content;
+					&::placeholder {
+						color: red;
+					}
 				}
 			}
 			@include limbo-only {

@@ -73,6 +73,7 @@
 		}
 		.post_socials {
 			@include flex-between;
+			align-items: center;
 			padding-block: 4.5rem;
 			border-bottom: 1px solid #707070;
 			.comment_count {
@@ -95,15 +96,9 @@
 				position: relative;
 				a {
 					cursor: pointer;
+					color: #000;
+					line-height: 0;
 				}
-			}
-			.result {
-				position: absolute;
-				bottom: -20px;
-				width: 120px;
-				left: -48px;
-				font-size: 13px;
-				text-align: center;
 			}
 		}
 		.post_related {
@@ -116,7 +111,9 @@
 		.post_related_inner {
 			@include flex-between;
 			.related-post {
-				width: 30%;
+				@include limbo-min {
+					width: 30%;
+				}
 				.post-thumbnail {
 					aspect-ratio: 1088 / 612;
 					margin-bottom: 3rem;
@@ -483,6 +480,9 @@
 aside {
 	.item_w_bg {
 		margin-bottom: var(--space-4);
+	}
+	@include tab-max {
+		display: none;
 	}
 	@include limbo-min {
 		width: 25%;

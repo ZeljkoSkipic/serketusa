@@ -366,7 +366,7 @@
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 	cursor: pointer;
 	border: none;
-	@include mob-only {
+	@include tab-max {
 		min-height: 46px;
 	}
 }
@@ -473,10 +473,10 @@ html {
 	margin-inline: auto;
 }
 @mixin color-swatch {
-	width: 4.4rem;
-	height: 4.4rem;
+	width: 33px;
+	height: 33px;
 	border-radius: 50px;
-	border: 4px solid transparent;
+	border: 3px solid transparent;
 	&.selected {
 		border-color: #000;
 		&[data-value='black'] {

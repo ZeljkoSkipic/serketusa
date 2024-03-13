@@ -15,12 +15,12 @@
  * @version 7.9.0
  */
 
- /* Developer notes:
- Added title and intro to Coupon
- Moved Colaterals into TD after Coupon
- Added 'coupon-wrap' div around the coupon
- Moved Update Cart to colaterals
- Added 'cart-after-items' class to TR after products
+ /* Developer Notes:
+ Removed  class="screen-reader-text" from coupon Label and changed the text
+ Changed Coupon Placeholder
+ Changed Apply Coupon to Apply
+ Inserted the wrap around Coupon Input and Button
+
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -162,41 +162,21 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 			<?php do_action( 'woocommerce_cart_contents' ); ?>
 
-			<tr class="cart-after-items">
+			<tr>
 				<td colspan="6" class="actions">
 
 					<?php if ( wc_coupons_enabled() ) { ?>
 						<div class="coupon">
-							<h2>Coupon</h2>
-							<div class="coupon-intro">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar, velit ac rutrum
-							</div>
-							<div class="coupon-wrap">
-								<label for="coupon_code" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Apply coupon', 'woocommerce' ); ?></button>
-								<?php do_action( 'woocommerce_cart_coupon' ); ?>
-							</div>
+							<label for="coupon_code"><?php esc_html_e( 'PROMO CODE:', 'woocommerce' ); ?></label> <div class="coupon_wrap"><input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Enter promo code here', 'woocommerce' ); ?>" /> <button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_html_e( 'Apply', 'woocommerce' ); ?></button></div>
+							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 						</div>
 					<?php } ?>
+
+					<button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
 
 					<?php do_action( 'woocommerce_cart_actions' ); ?>
 
 					<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
-
-					<?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
-
-					<div class="cart-collaterals">
-						<?php
-							/**
-							 * Cart collaterals hook.
-							 *
-							 * @hooked woocommerce_cross_sell_display
-							 * @hooked woocommerce_cart_totals - 10
-							 */
-							do_action( 'woocommerce_cart_collaterals' );
-						?>
-						<button type="submit" class="button<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
-					</div>
-
 				</td>
 			</tr>
 
@@ -206,6 +186,18 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 </form>
 
+<?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
 
+<div class="cart-collaterals">
+	<?php
+		/**
+		 * Cart collaterals hook.
+		 *
+		 * @hooked woocommerce_cross_sell_display
+		 * @hooked woocommerce_cart_totals - 10
+		 */
+		do_action( 'woocommerce_cart_collaterals' );
+	?>
+</div>
 
 <?php do_action( 'woocommerce_after_cart' ); ?>

@@ -4,13 +4,14 @@ $anchor = '';
 if ( ! empty( $block['anchor'] ) ) {
 	$anchor = 'id="' . esc_attr( $block['anchor'] ) . '" ';
 }
-$class = 'st_block st_counters space_0_3';
+$class = 'st_block st_counters space_4';
 if ( ! empty( $block['className'] ) ) {
 	$class .= ' ' . $block['className'];
 }
 
 ?>
 <div id="<?php echo $anchor; ?>" class="<?php echo $class ?>">
+	<?php get_template_part('components/background'); ?>
 	<div class="st_counters_inner c-narrow">
 		<?php
 
@@ -21,7 +22,7 @@ if ( ! empty( $block['className'] ) ) {
 			$number = get_sub_field('number');
 			$title = get_sub_field('title'); ?>
 				<div class="st_counter">
-					<h4 class="counter_number title-2"><?php echo $number; ?></h4>
+					<h4 class="counter_number title-1"><?php echo $number; ?></h4>
 					<p class="counter_text body-2"><?php echo $title; ?></p>
 				</div>
 

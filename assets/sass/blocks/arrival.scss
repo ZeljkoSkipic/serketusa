@@ -2,30 +2,75 @@
 	@include flex-col;
 	align-items: center;
 	justify-content: center;
-	aspect-ratio: 192 / 63;
+	@include limbo-min {
+		aspect-ratio: 192 / 63;
+	}
 	width: 100%;
+	.st_arrival_inner {
+		width: 100%;
+	}
 	.block_bg {
 		img {
 			object-position: center left;
 		}
 	}
-	.st_arrival_content {
-		@include flex;
-		width: 32%;
-		justify-content: center;
-		margin-left: auto;
-		@include tab-max {
-			width: 100%;
+	.carousel-cell  {
+		width: 100%;
+		@include limbo-min {
+			aspect-ratio: 192 / 63;
 		}
 	}
-	.prefix, .intro_title {
-		color: #fff;
-		text-align: center;
+	.carousel-cell_inner {
+		height: fit-content;
+		margin-inline: auto;
+		display: flex;
+		align-items: center;
+		width: 80%;
+
 	}
-	.intro_title {
+	.st_arrival_content {
+		@include flex;
+		width: 70rem;
+		max-width: 100%;
+		justify-content: center;
+		@include limbo-min {
+			margin-left: auto;
+		}
+		@include tab-max {
+			margin-inline: auto;
+		}
+	}
+	.prefix {
+		text-align: center;
+		color: #fff;
+	}
+	.arrival_title {
+		text-align: center;
+		font-size: 6.4rem;
+		line-height: 1.15;
 		text-transform: uppercase;
 		color: var(--color-1);
 		margin-bottom: 0;
 		text-shadow: 0px 7px 6px rgba(0, 0, 0, 0.16);
+		margin-bottom: 20px;
+		@include tab-max {
+			font-size: 5rem;
+		}
+	}
+	.flickity-prev-next-button {
+		@include mob-only {
+			width: 30px;
+			height: 30px;
+		}
+	}
+	.flickity-prev-next-button.previous {
+		@include limbo-min {
+			left: 7.5%;
+		}
+	}
+	.flickity-prev-next-button.next {
+		@include limbo-min {
+			right: 7.5%;
+		}
 	}
 }

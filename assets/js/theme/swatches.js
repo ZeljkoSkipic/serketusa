@@ -72,6 +72,7 @@ jQuery(document).ready(function ($) {
         const currentTerm = $(e.currentTarget)
         const siblingsTerms = currentTerm.parent().find(swatchesLabelsContentProduct)
         const productUrlElement = currentTerm.closest('.woocommerce-loop-product__link')
+        const selectOptions = productUrlElement.parent().find('.product_type_variable.add_to_cart_button');
         const productUrl = currentTerm.closest('.woocommerce-loop-product__link').attr('href')
         const colorSlug = currentTerm.data('value')
 
@@ -86,6 +87,7 @@ jQuery(document).ready(function ($) {
             url.searchParams.delete('productColor');
             url.searchParams.append('productColor', colorSlug);
             productUrlElement.attr('href', url)
+            selectOptions.attr(url);
         }
     }
 

@@ -35,13 +35,6 @@ get_header();
 
  */
 
-
-// Get the current category
-$current_category = get_queried_object();
-
-// Get the parent category by slug
-$parent_category = get_term_by('slug', 'cat2', 'product_cat');
-
 ?>
 
 <header class="page-header space_4">

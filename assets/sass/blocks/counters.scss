@@ -16,20 +16,24 @@
 		}
 		.counter_number {
 			color: var(--color-1);
-			margin-bottom: 1.8rem;
-		}
-		p {
-			margin-top: 0;
+			margin-bottom: 0;
 		}
 		.counter_text {
-			color: #A2A2A2;
-			margin-top: 2rem;
+			color: #fff;
+			margin-top: 10px;
 		}
-		@include tab-max {
+		@include tab-only {
 			width: 48%;
 			margin-bottom: 4%;
 			&:nth-child(2) {
 				border: none;
+			}
+		}
+		@include mob-only {
+			width: 100%;
+			border-right: none!important;
+			&:not(:last-child) {
+				border-bottom: 2px solid #a7a7a7;
 			}
 		}
 	}

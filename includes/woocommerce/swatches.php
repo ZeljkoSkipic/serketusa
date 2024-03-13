@@ -135,12 +135,12 @@ add_action('product_swatches', 'add_swatches', 10, 4);
 function add_swatches($options, $attribute_name, $attribute_swatches_type, $product)
 {
     $variations = $product->get_available_variations();
-  
-    
+
+
     ?>
     <div class="product-swatches">
         <?php
-      
+
         if ($options) {
             foreach ($options as $option) {
                 $valid = false;
@@ -187,7 +187,7 @@ function swatches_content_product()
         if ($variation_attributes && isset($variation_attributes['pa_colors']) && $variation_attributes['pa_colors']) {
             $attr_id = wc_attribute_taxonomy_id_by_name('pa_colors');
             $attribute_swatches_type = get_option("wc_attribute_swatched-type-$attr_id");
-            do_action('product_swatches', $variation_attributes['pa_colors'], 'pa_colors', $attribute_swatches_type);
+            do_action('product_swatches', $variation_attributes['pa_colors'], 'pa_colors', $attribute_swatches_type, $product);
         }
     }
 }

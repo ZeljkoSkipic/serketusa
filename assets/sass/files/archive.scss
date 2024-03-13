@@ -91,10 +91,13 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			margin-top: 10px;
+			margin-bottom: -10px;
 			span {
 				@include color-swatch;
-				width: 3.2rem;
-				height: 3.2rem;
+				margin-bottom: 0;
+				width: 33px;
+				height: 33px;
 				&:not(:last-child) {
 					margin-right: 15px;
 				}

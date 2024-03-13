@@ -95,6 +95,7 @@ jQuery(document).ready(function ($) {
     var currentTerm = $(e.currentTarget);
     var siblingsTerms = currentTerm.parent().find(swatchesLabelsContentProduct);
     var productUrlElement = currentTerm.closest('.woocommerce-loop-product__link');
+    var selectOptions = productUrlElement.parent().find('.product_type_variable.add_to_cart_button');
     var productUrl = currentTerm.closest('.woocommerce-loop-product__link').attr('href');
     var colorSlug = currentTerm.data('value');
     if (!currentTerm.hasClass('selected')) {
@@ -107,6 +108,7 @@ jQuery(document).ready(function ($) {
       url.searchParams.delete('productColor');
       url.searchParams.append('productColor', colorSlug);
       productUrlElement.attr('href', url);
+      selectOptions.attr(url);
     }
   };
   swatchesInit();

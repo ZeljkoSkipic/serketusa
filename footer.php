@@ -88,15 +88,27 @@ $email = get_field('email', 'option');
 			</div>
 
 			<div class="col"> <!-- Newsletter -->
-				<h4>Sign Up</h4>
-				<p>Receive special alerts and discounts when you subscribe to the Serket Newsletter.</p>
-				<input type="email" placeholder="Enter email address">
-				<a href="#">Subscribe</a>
+				<div id="mc_embed_shell">
+					<div id="mc_embed_signup">
+						<form action="https://westernshelter.us12.list-manage.com/subscribe/post?u=46691f85844d13219c6c4de0a&amp;id=0143e9f533&amp;f_id=00580de1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_self" novalidate="">
+							<div id="mc_embed_signup_scroll"><h2>Sign Up</h2>
+								<p>Receive special alerts and discounts when you subscribe to the Serket Newsletter.</p>
+								<div class="mc-field-group"><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" placeholder="Enter email address"></div>
+							<div id="mce-responses" class="clear">
+								<div class="response" id="mce-error-response" style="display: none;"></div>
+								<div class="response" id="mce-success-response" style="display: none;"></div>
+							</div><div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_46691f85844d13219c6c4de0a_0143e9f533" tabindex="-1" value=""></div><div class="clear"><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe"></div>
+						</div>
+					</form>
+					</div>
+				</div>
+
+
 			</div>
 		</div>
 
 		<div class="footer_bottom c-wide">
-			<p><?php the_field('copy', 'option'); ?></p>
+			<p><?php echo wp_kses_post( get_field('copy', 'option') ); ?></p>
 		</div>
 	</footer>
 </div><!-- #page -->
