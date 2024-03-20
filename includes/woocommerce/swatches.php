@@ -73,7 +73,7 @@ function swatches_admin_scripts($hook_suffix)
 
 function render_color_picker($term = "")
 {
-    if($term) {
+    if ($term) {
         $color_picker_value = get_term_meta($term->term_id, 'color', true);
     }
 ?>
@@ -87,7 +87,7 @@ function render_color_picker($term = "")
         </td>
     </tr>
 
-    <?php
+<?php
 }
 
 // Add custom color picker to Woo Attribute Term
@@ -117,12 +117,13 @@ if (is_admin() && isset($_GET['taxonomy'], $_GET['post_type']) && $_GET['post_ty
 
 // Save Color Picker Value
 
-add_action('saved_term', 'woo_swatches_term_field_save', 10 , 5);
+add_action('saved_term', 'woo_swatches_term_field_save', 10, 5);
 
-function woo_swatches_term_field_save($term_id, $tt_id, $taxonomy, $update, $args) {
+function woo_swatches_term_field_save($term_id, $tt_id, $taxonomy, $update, $args)
+{
     if (is_admin() && isset($_POST['swatches-color-picker'])) {
         $color_picker_value = wp_strip_all_tags($_POST['swatches-color-picker']);
-        if($color_picker_value) {
+        if ($color_picker_value) {
             update_term_meta($term_id, 'color', $color_picker_value);
         }
     }
@@ -136,22 +137,41 @@ function add_swatches($options, $attribute_name, $attribute_swatches_type, $prod
 {
     $variations = $product->get_available_variations();
 
+    // Find color Image for each variation
 
-    ?>
+    if ($attribute_name == 'pa_colors') {
+        $colors_images = [];
+        $default_image_id = get_post_thumbnail_id($product->get_id());
+
+        foreach ($variations as $variation) {
+            foreach ($options as $option) {
+                if (in_array($option, $variation['attributes'])) {
+                    if ($variation['image_id'] !== $default_image_id) {
+                        if (isset($variation['image']) && $variation['image']) {
+                            $colors_images[$option]['url'] = $variation['image']['url'];
+                            $colors_images[$option]['srcset'] = $variation['image']['srcset'];
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+?>
     <div class="product-swatches">
         <?php
 
         if ($options) {
             foreach ($options as $option) {
                 $valid = false;
-                foreach($variations as $variation) {
-                    if(in_array($option, $variation['attributes'])) {
+                foreach ($variations as $variation) {
+                    if (in_array($option, $variation['attributes'])) {
                         $valid = true;
                         break;
                     }
                 }
 
-                if(!$valid) continue;
+                if (!$valid) continue;
 
                 $term = get_term_by('slug', $option, $attribute_name);
                 if ($attribute_swatches_type == 'name') {
@@ -161,9 +181,10 @@ function add_swatches($options, $attribute_name, $attribute_swatches_type, $prod
                 <?php
                 } else if ($attribute_swatches_type == 'color') {
 
-                    $term_color = get_term_meta( $term->term_id,'color', true );
+                    $term_color = get_term_meta($term->term_id, 'color', true);
                 ?>
-                    <span data-attribute-name="<?php echo $attribute_name; ?>" style="<?php echo 'background-color:' . $term_color ?>" data-value="<?php echo $option; ?>" class="product-swatches__label">&nbsp;</span>
+                    <span <?php if (isset($colors_images))  if (isset($colors_images[$term->slug]))  echo 'data-image-url="' . $colors_images[$term->slug]['url'] . '"' . ' data-image-src="' . $colors_images[$term->slug]['srcset'] . '"';
+                            else echo 'data-image-url="' . wp_get_attachment_image_url($default_image_id, 'full') . '"' . ' data-image-src="' . wp_get_attachment_image_srcset($default_image_id, 'full') . '"';     ?> data-attribute-name="<?php echo $attribute_name; ?>" style="<?php echo 'background-color:' . $term_color ?>" data-value="<?php echo $option; ?>" class="product-swatches__label">&nbsp;</span>
 
         <?php
                 }
@@ -171,7 +192,43 @@ function add_swatches($options, $attribute_name, $attribute_swatches_type, $prod
         }
         ?>
     </div>
+    <?php
+}
+
+// Add catalog Swatches
+
+add_action('product_catalog_swatches', 'product_catalog_swatches', 10, 2);
+
+function product_catalog_swatches($product_colors, $product)
+{
+
+    if ($product_colors) {
+    ?>
+        <div class="product-swatches-catalog">
+
+            <?php
+            if(is_singular('product')) {
+                ?>
+                <h4 class="sp-am-title" class="product-swatches-catalog__name-label"><strong><?php esc_html_e('Colors', 'serket'); ?></strong></h4>
+                <?php
+            }
+
+            $default_image = $product->get_image_id();
+            foreach ($product_colors as $product_color) {
+                $image = $product_color['image'];
+
+            ?>
+                <span data-default-image-url="<?php echo wp_get_attachment_image_url($default_image, 'full'); ?>" data-default-image-woo-size="<?php echo wp_get_attachment_image_url($default_image, 'woocommerce_single')  ?>" data-default-image-srcset="<?php echo wp_get_attachment_image_srcset($default_image, 'full') ?>" data-image-woo-size="<?php echo wp_get_attachment_image_url($image, 'woocommerce_single')  ?>" data-image-url="<?php echo wp_get_attachment_image_url($image, 'full'); ?>" data-image-srcset="<?php echo wp_get_attachment_image_srcset($image, 'full') ?>" data-color-name="<?php echo str_replace(" ", '-', strtolower($product_color['color_name'])); ?>" style="<?php echo 'background-color:' . $product_color['color'] ?>" class="product-swatches-catalog__label">&nbsp;</span>
+
+            <?php
+            }
+
+            ?>
+
+        </div>
+
 <?php
+    }
 }
 
 // Add Swatches to content product
@@ -190,6 +247,16 @@ function swatches_content_product()
             do_action('product_swatches', $variation_attributes['pa_colors'], 'pa_colors', $attribute_swatches_type, $product);
         }
     }
+
+     // Product Catalog Swatches
+
+     $template_product = get_page_template_slug($product->get_id());
+     $product_colors = get_field('product_colors', $product->get_id());
+
+     if( $template_product == 'woocommerce/single-product-catalog.php') {
+        do_action('product_catalog_swatches', $product_colors, $product);
+     }
+
 }
 
 add_action('woocommerce_before_shop_loop_item_title', 'swatches_content_product', 11);

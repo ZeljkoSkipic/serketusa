@@ -89,6 +89,19 @@ if( function_exists('acf_add_options_page') ) {
 		'parent_slug'   => '/edit.php',
 	));
 
+	acf_add_options_sub_page(array(
+		'page_title'    => 'Archive',
+		'menu_title'    => 'Archive',
+		'parent_slug'   => '/edit.php',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title'    => 'Military Account registration Emails',
+		'menu_title'    => 'Military Emails',
+		'parent_slug'   => 'woocommerce',
+	));
+
+
 }
 
 

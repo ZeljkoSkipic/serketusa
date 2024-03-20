@@ -182,6 +182,115 @@
                     "mime_types": "",
                     "preview_size": "medium",
                     "parent_repeater": "field_65dcc6d5e9880"
+                },
+                {
+                    "key": "field_65f1c619f640f",
+                    "label": "Settings",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "tab",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placement": "top",
+                    "endpoint": 0,
+                    "parent_repeater": "field_65dcc6d5e9880"
+                },
+                {
+                    "key": "field_65f1c621f6410",
+                    "label": "Settings",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "message",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "title_message",
+                        "id": ""
+                    },
+                    "message": "",
+                    "new_lines": "wpautop",
+                    "esc_html": 0,
+                    "parent_repeater": "field_65dcc6d5e9880"
+                },
+                {
+                    "key": "field_65f1c62bf6411",
+                    "label": "Text and Button Position",
+                    "name": "text_and_button_position",
+                    "aria-label": "",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "st_left": "Left",
+                        "st_mid": "Middle",
+                        "st_right": "Right"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "layout": "horizontal",
+                    "save_other_choice": 0,
+                    "parent_repeater": "field_65dcc6d5e9880"
+                },
+                {
+                    "key": "field_65f1c662f6412",
+                    "label": "Button Style",
+                    "name": "button_style",
+                    "aria-label": "",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "btn-1": "Stlye 1",
+                        "btn-2": "Style 2"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "layout": "horizontal",
+                    "save_other_choice": 0,
+                    "parent_repeater": "field_65dcc6d5e9880"
+                },
+                {
+                    "key": "field_65f1c68cf6413",
+                    "label": "Title Color",
+                    "name": "title_color",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "#ecaa1f",
+                    "enable_opacity": 0,
+                    "return_format": "string",
+                    "parent_repeater": "field_65dcc6d5e9880"
                 }
             ]
         }
@@ -204,5 +313,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1708968527
+    "modified": 1710344443
 }

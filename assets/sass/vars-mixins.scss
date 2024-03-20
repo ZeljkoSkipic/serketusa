@@ -350,13 +350,12 @@
 // Buttons
 
 @mixin btn {
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1.5;
 	padding: 8px 20px;
 	border-radius: 14px;
 	width: fit-content;
 	max-width: 100%;
-
 	text-transform: uppercase;
 	display: inline-flex;
 	align-items: center;
@@ -480,6 +479,10 @@ html {
 	&.selected {
 		border-color: #000;
 		&[data-value='black'] {
+			border-color: var(--color-1);
+		}
+
+		&[data-color-name='black'] {
 			border-color: var(--color-1);
 		}
 	}

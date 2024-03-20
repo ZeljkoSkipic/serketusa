@@ -24,6 +24,8 @@ if ( ! empty( $block['className'] ) ) {
 			$title = get_sub_field('title');
 			$arrival_background = get_sub_field('arrival_background');
 			$size = 'full';
+			$style = get_sub_field('button_style');
+			$layout = get_sub_field('text_and_button_position');
 			?>
 			<div class="carousel-cell">
 			<div class="block_bg">
@@ -32,9 +34,9 @@ if ( ! empty( $block['className'] ) ) {
 			} ?>
 			</div>
 				<div class="carousel-cell_inner space_1_2">
-					<div class="st_arrival_content">
+					<div class="st_arrival_content <?php echo esc_attr($layout); ?>">
 						<h4 class="prefix"><?php echo $prefix; ?></h4>
-						<h2 class="arrival_title"><?php echo $title; ?></h2>
+						<h2 class="arrival_title" style="color: <?php echo wp_kses_post( get_sub_field('title_color') ); ?>"><?php echo $title; ?></h2>
 						<?php
 						$button_text_and_link = get_sub_field('button_text_and_link');
 						if( $button_text_and_link ):
@@ -42,7 +44,7 @@ if ( ! empty( $block['className'] ) ) {
 							$button_text_and_link_title = $button_text_and_link['title'];
 							$button_text_and_link_target = $button_text_and_link['target'] ? $button_text_and_link['target'] : '_self';
 							?>
-							<a class="btn-2" href="<?php echo esc_url( $button_text_and_link_url ); ?>" target="<?php echo esc_attr( $button_text_and_link_target ); ?>"><?php echo esc_html( $button_text_and_link_title ); ?></a>
+							<a class="<?php echo esc_attr($style); ?>" href="<?php echo esc_url( $button_text_and_link_url ); ?>" target="<?php echo esc_attr( $button_text_and_link_target ); ?>"><?php echo esc_html( $button_text_and_link_title ); ?></a>
 						<?php endif; ?>
 					</div>
 				</div>

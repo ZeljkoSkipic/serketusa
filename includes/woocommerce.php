@@ -73,3 +73,13 @@ function custom_woocommerce_product_add_to_cart_text( $text ) {
 
 }
 add_filter( 'woocommerce_product_add_to_cart_text' , 'custom_woocommerce_product_add_to_cart_text' );
+
+
+add_filter( 'woocommerce_product_add_to_cart_text', 'stier_change_select_options_button_text', 9999, 2 );
+
+function stier_change_select_options_button_text( $label, $product ) {
+   if ( $product->is_type( 'variable' ) ) {
+      return 'View More';
+   }
+   return $label;
+}

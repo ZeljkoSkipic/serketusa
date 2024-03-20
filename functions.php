@@ -96,6 +96,10 @@ require get_template_directory() . '/includes/customizer.php';
 
 require get_template_directory() . '/includes/woocommerce.php';
 
+// WooCommerce Military Form
+
+require get_template_directory() . '/includes/register/index.php';
+
 /* Remove Downloads */
 
 add_filter('woocommerce_account_menu_items', 'remove_my_account_tabs', 999);

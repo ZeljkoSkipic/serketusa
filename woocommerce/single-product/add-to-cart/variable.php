@@ -49,6 +49,8 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
 						<td class="value">
 
 							<?php
+							
+							
 							do_action('product_swatches',  $options, $attribute_name, $attribute_swatches_type, $product);
 							wc_dropdown_variation_attribute_options(
 								array(

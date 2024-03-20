@@ -48,7 +48,7 @@
 					top: 100%;
 					left: -999em;
 					z-index: 99;
-					min-width: 200px;
+					min-width: 230px;
 					width: fit-content;
 					display: flex;
 					flex-direction: column;
@@ -58,9 +58,16 @@
 					transition: opacity .3s;
 					filter: drop-shadow(2.5px 2.5px 5px rgba(0, 0, 0, 0.05));
 					li:not(:last-child) {
-					a {
-						margin-bottom: .5rem;
+						a {
+							margin-bottom: .5rem;
+						}
 					}
+				}
+			}
+			li {
+				&.current-menu-item {
+					a {
+						color: var(--color-1);
 					}
 				}
 			}
@@ -70,6 +77,7 @@
 				align-items: center;
 				position: relative;
 				padding-block: 1rem;
+
 				&:not(:last-child) {
 					margin-right: 4.3rem;
 				}
@@ -94,6 +102,10 @@
 				a { // All nav links
 					color: #fff;
 					font-family: Secondary;
+					transition: var(--st);
+					&:hover {
+						color: var(--color-1)
+					}
 				}
 				.sub-menu-trigger {
 					position: relative;

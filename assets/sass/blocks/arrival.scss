@@ -26,7 +26,6 @@
 		display: flex;
 		align-items: center;
 		width: 80%;
-
 	}
 	.st_arrival_content {
 		@include flex;
@@ -34,7 +33,12 @@
 		max-width: 100%;
 		justify-content: center;
 		@include limbo-min {
-			margin-left: auto;
+			&.st_mid {
+				margin-inline: auto;
+			}
+			&.st_right {
+				margin-left: auto;
+			}
 		}
 		@include tab-max {
 			margin-inline: auto;

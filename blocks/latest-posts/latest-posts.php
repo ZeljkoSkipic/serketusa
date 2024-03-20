@@ -56,6 +56,6 @@ if ( ! empty( $block['className'] ) ) {
 
 	</div>
 	<div class="btns">
-		<a href="<?php echo esc_url(get_post_type_archive_link( 'post' )); ?>" class="btn-2">View all news</a>
+		<a href="<?php echo esc_url(get_post_type_archive_link( 'post' )); ?>" class="btn-2">View all Blogs</a>
 	</div>
 </div>

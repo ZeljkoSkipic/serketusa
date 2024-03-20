@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying product content in the single-product.php template
  *
@@ -15,7 +16,7 @@
  * @version 3.6.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 global $product;
 
@@ -24,14 +25,14 @@ global $product;
  *
  * @hooked woocommerce_output_all_notices - 10
  */
-do_action( 'woocommerce_before_single_product' );
+do_action('woocommerce_before_single_product');
 
-if ( post_password_required() ) {
+if (post_password_required()) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
 
 	<?php
 	/**
@@ -40,7 +41,7 @@ if ( post_password_required() ) {
 	 * @hooked woocommerce_show_product_sale_flash - 10
 	 * @hooked woocommerce_show_product_images - 20
 	 */
-	do_action( 'woocommerce_before_single_product_summary' );
+	do_action('woocommerce_before_single_product_summary');
 	?>
 
 	<div class="summary entry-summary">
@@ -57,13 +58,19 @@ if ( post_password_required() ) {
 		 * @hooked woocommerce_template_single_sharing - 50
 		 * @hooked WC_Structured_Data::generate_product_data() - 60
 		 */
-		do_action( 'woocommerce_single_product_summary' );
+		do_action('woocommerce_single_product_summary');
 		?>
 		<?php
 
-		if( have_rows('section') ): ?>
+		// Color Swatches
+
+		$product_colors = get_field('product_colors');
+
+		do_action('product_catalog_swatches', $product_colors, $product);
+
+		if (have_rows('section')) : ?>
 			<div class="single-product-additional_meta">
-				<?php while( have_rows('section') ) : the_row(); ?>
+				<?php while (have_rows('section')) : the_row(); ?>
 
 					<?php
 					$title = get_sub_field('title');
@@ -81,12 +88,12 @@ if ( post_password_required() ) {
 		<?php endif; ?>
 		<?php
 		$how_to_buy_button = get_field('how_to_buy_button', 'option');
-		if( $how_to_buy_button ):
+		if ($how_to_buy_button) :
 			$link_url = $how_to_buy_button['url'];
 			$link_title = $how_to_buy_button['title'];
 			$link_target = $how_to_buy_button['target'] ? how_to_buy_button['target'] : '_self';
-			?>
-			<a class="single_add_to_cart_button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+		?>
+			<a class="single_add_to_cart_button" href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"><?php echo esc_html($link_title); ?></a>
 		<?php endif; ?>
 	</div>
 
@@ -98,8 +105,8 @@ if ( post_password_required() ) {
 	 * @hooked woocommerce_upsell_display - 15
 	 * @hooked woocommerce_output_related_products - 20
 	 */
-	do_action( 'woocommerce_after_single_product_summary' );
+	do_action('woocommerce_after_single_product_summary');
 	?>
 </div>
 
-<?php do_action( 'woocommerce_after_single_product' ); ?>
+<?php do_action('woocommerce_after_single_product'); ?>

@@ -19,9 +19,11 @@ $email = get_field('email', 'option');
 				<?php
 				$image = get_field('image', 'option');
 				$size = 'full';
-				if( $image ) {
-					echo wp_get_attachment_image( $image, $size, "", array( "class" => "image" ) );
-				} ?>
+				if( $image ) { ?>
+					<a href="/">
+					<?php echo wp_get_attachment_image( $image, $size, "", array( "class" => "image" ) ); ?>
+					</a>
+				<?php } ?>
 				<p class="location"><?php the_field('location', 'option'); ?></p>
 				<a href="<?php echo esc_url( 'mailto:' . antispambot( $email ) ); ?>" class="email"><?php echo esc_html( antispambot( $email ) ); ?></a>
 				<div class="socials">

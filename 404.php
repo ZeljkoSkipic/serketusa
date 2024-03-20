@@ -1,8 +1,4 @@
 <?php
-/*
-Template Name: 404
-Template Post Type: page
-*/
 
 get_header();
 ?>

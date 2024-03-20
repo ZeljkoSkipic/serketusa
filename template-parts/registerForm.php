@@ -16,7 +16,7 @@ if ($user_registred && $user_registred == true) :
 else :
 ?>
 
-    <section class="military-register-form">
+    <section class="military-register-form c-narrow space_2">
         <div class="container">
 
             <?php do_action('form_register_errors'); ?>
@@ -89,11 +89,11 @@ else :
                         </div>
                     </div>
                     <div class="register-form__input register-form__input--rights">
-                        <label for="rights"><?php esc_html_e('I have read and understand the NGC CST Group Order Submission instructions', 'register'); ?></label>
-                        <input type="checkbox" id="rights" name="register_rights">
+						<input type="checkbox" id="rights" name="register_rights">
+						<label for="rights"><?php esc_html_e('I have read and understand the NGC CST Group Order Submission instructions', 'register'); ?></label>
                     </div>
                     <div class="register-form__input">
-                        <input type="submit" id="register" name="register" value="<?php esc_html_e('Register', 'register'); ?>">
+                        <input class="btn-1" type="submit" id="register" name="register" value="<?php esc_html_e('Register', 'register'); ?>">
                     </div>
                     <?php wp_nonce_field('form-register-key', 'form_register_key'); ?>
                 </form>

@@ -1,0 +1,26 @@
+body.woocommerce-checkout {
+	.site-main {
+		width: var(--site-width);
+		max-width: var(--max-width-wide);
+		margin-inline: auto;
+	}
+	form.woocommerce-checkout {
+		@include flex-between;
+	}
+	#customer_details {
+		order: 1;
+		width: 50%;
+		label {
+			display: block;
+			font-weight: 700;
+			font-style: normal;
+			word-break: break-word;
+			word-wrap: break-word;
+			margin-bottom: 20px;
+		}
+	}
+	.woocommerce-checkout-review-order {
+		width: 50%;
+		order: 2;
+	}
+}

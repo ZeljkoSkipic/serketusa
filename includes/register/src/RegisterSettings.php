@@ -138,7 +138,7 @@ class RegisterSettings
         if (function_exists('acf_add_options_page')) {
             acf_add_options_sub_page(array(
                 'page_title'    => 'Users CST Team Settings',
-                'menu_title'    => 'Users CST Team Settings',
+                'menu_title'    => 'CST Users',
                 'parent_slug'   => 'woocommerce',
             ));
         }

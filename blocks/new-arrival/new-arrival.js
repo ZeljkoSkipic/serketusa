@@ -61,7 +61,8 @@ jQuery(document).ready(function ($) {
 $('.main-carousel').flickity({
 	// options
 	cellAlign: 'left',
-	contain: true
+	contain: true //,
+	// autoPlay: true
   });
 
 });

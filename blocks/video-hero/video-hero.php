@@ -11,7 +11,7 @@ if ( ! empty( $block['className'] ) ) {
 
 ?>
 <div id="<?php echo $anchor; ?>" class="<?php echo $class ?>">
-	<video width="960" height="620" autoplay="autoplay" muted playsinline loop>
+	<video width="960" height="540" autoplay="autoplay" muted playsinline loop>
 		<source src="<?php the_field('hero_video');?>" type="video/mp4" >
 	</video>
 </div>
