@@ -16,6 +16,7 @@
  */
 
  /* Developer Notes:
+ Added h1
  Removed  class="screen-reader-text" from coupon Label and changed the text
  Changed Coupon Placeholder
  Changed Apply Coupon to Apply
@@ -23,13 +24,35 @@
 
  */
 
-defined( 'ABSPATH' ) || exit;
+defined( 'ABSPATH' ) || exit; ?>
 
-do_action( 'woocommerce_before_cart' ); ?>
+<h1>Your Cart</h1>
+
+<?php do_action( 'woocommerce_before_cart' ); ?>
 
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
+	<?php
+$is_user_military = false;
 
+if (is_user_logged_in()) {
+    $user =  wp_get_current_user();
+    $roles = (array) $user->roles;
+
+    if (in_array('administrator', $roles) || in_array('military_customer', $roles)) {
+        $is_user_military = true;
+    }
+}
+
+if ($is_user_military) :
+$team_order_button = get_field('team_order_button', 'option');
+if( $team_order_button ):
+	$link_url = $team_order_button['url'];
+	$link_target = $team_order_button['target'] ? $team_order_button['target'] : '_self';
+	?>
+	<a class="btn-2 return-to-order-btn" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">Return to Order</a>
+<?php endif;
+endif; ?>
 	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 		<thead>
 			<tr>
@@ -183,10 +206,13 @@ do_action( 'woocommerce_before_cart' ); ?>
 			<?php do_action( 'woocommerce_after_cart_contents' ); ?>
 		</tbody>
 	</table>
+
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 </form>
 
+
 <?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
+
 
 <div class="cart-collaterals">
 	<?php

@@ -1,0 +1,136 @@
+body.login {
+	background: #18191B;
+	background-image: url(../images/login-background-dark.jpg);
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+div#login {
+	width: 490px;
+	max-width: 90%;
+}
+.login form#loginform {
+	box-shadow: 0px 4px 100px 0px #18191B14;
+	border: none;
+	border-radius: 2px;
+	background: rgba(255,255,255, .05);
+	padding: 40px;
+}
+.login form#loginform label[for='user_login'], .login form#loginform label[for='user_pass'] {
+	color: #6B7280;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: .5px;
+	margin-bottom: 8px;
+}
+.login form#loginform p.forgetmenot label {
+	width: unset;
+}
+.login form input.input {
+	background: rgba(255,255,255, .1);
+
+	border: 1px solid rgba(24, 25, 27, 0.1)!important;
+	transition: .5s all;
+	outline: none;
+	color: #fff;
+}
+
+.login .button.wp-hide-pw {
+	height: 53.59px;
+}
+.login form input.input:focus {
+	background: rgba(255,255,255, .3);
+	border-bottom-color: #18191b;
+	box-shadow: none;
+}
+#login h1 a, .login h1 a {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top center;
+	width: 80%;
+	max-width: 300px;
+	height: 90px;
+}
+.login form p.forgetmenot {
+	color: #6B7280;
+	font-weight: 500;
+}
+.login form p.forgetmenot input {
+	width: 0;
+	opacity: 0;
+	height: 0;
+	display: none;
+}
+.login form p.forgetmenot label {
+	display: flex;
+	color: #ecaa1f;
+	cursor: pointer;
+}
+.login form p.forgetmenot label:before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	border-radius: 2px;
+	display: inline-flex;
+	background-color: #ecaa1f;
+	margin-right: 8px;
+}
+.login form p.forgetmenot input:checked + label:before {
+	background-image: url(../icons/check.svg);
+	background-size: 16px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#login form p.submit {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	outline: none;
+}
+.login .button-primary#wp-submit {
+	background: #ecaa1f;
+	width: 100%;
+	color: #18191B;
+	font-weight: 700;
+	border: none;
+	text-transform: uppercase;
+	margin-top: 24px;
+	transition: .3s all;
+}
+.login .button-primary#wp-submit:hover {
+	opacity: .8;
+}
+#login #nav, #login #backtoblog {
+	text-align: center;
+}
+#login #nav a, #login #backtoblog a {
+	color: #ecaa1f;
+}
+#login #nav a:hover, #login #backtoblog a:hover {
+	text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+	#login h1 a, .login h1 a {
+		padding-bottom: 20px;
+	}
+	.login form input.input {
+		margin-bottom: 24px;
+		padding: 10px 1rem;
+	}
+	.login .button-primary#wp-submit {
+		padding: .5rem 4rem;
+	}
+}
+
+@media (max-width: 767px) {
+	#login h1 a, .login h1 a {
+		background-position: center;
+	}
+	.login form#loginform {
+		padding: 25px;
+	}
+	.login form#loginform label[for='user_login'], .login form#loginform label[for='user_pass'] {
+		font-size: 13px;
+	}
+}

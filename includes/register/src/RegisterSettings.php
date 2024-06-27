@@ -138,7 +138,7 @@ class RegisterSettings
         if (function_exists('acf_add_options_page')) {
             acf_add_options_sub_page(array(
                 'page_title'    => 'Users CST Team Settings',
-                'menu_title'    => 'CST Users',
+                'menu_title'    => 'Users CST Team Settings',
                 'parent_slug'   => 'woocommerce',
             ));
         }
@@ -154,13 +154,22 @@ class RegisterSettings
             'id'         => 'military_form_register'
         ];
 
+        $field_team_order_page = [
+            'title'      => __('Team Order Page'),
+            'type'       => 'select',
+            'desc'       => __('Select the page for the team order screen'),
+            'id'         => 'team_order_page'
+        ];
+
         $field['options'][-1] = __('Choose Page');
+        $field_team_order_page['options'][-1] = __('Choose Page');
 
         $pages = $this->getPages();
 
         if ($pages) {
             foreach ($pages as $page) {
                 $field['options'][$page->ID] = $page->post_title;
+                $field_team_order_page['options'][$page->ID] = $page->post_title;
             }
         }
 
@@ -170,9 +179,15 @@ class RegisterSettings
             'id'         => 'military_form_register_title'
         ];
 
+        $field_title_team_order = [
+            'name'      => __('Team Order Page'),
+            'type'       => 'title',
+            'id'         => 'team_order_page_title'
+        ];
+        array_unshift($settings, $field_team_order_page);
+        array_unshift($settings, $field_title_team_order);
         array_unshift($settings, $field);
         array_unshift($settings, $field_title);
-
 
         return $settings;
     }

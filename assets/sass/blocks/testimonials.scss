@@ -19,8 +19,9 @@
 	border-radius: 3.2rem;
 	padding: var(--space-2) 6rem var(--space-4);
 	background-image: url(../icons/quote.svg);
+	background-size: 15rem;
 	background-repeat: no-repeat;
-	background-position: top 6.7rem left 6rem;
+	background-position: top left 2rem;
 	box-shadow: 13px 15px 11px rgba(0, 0, 0, 0.15);
 	margin-bottom: 4.5rem;
 	@include tab-max {
@@ -31,15 +32,11 @@
 	@include tab-max {
 		width: 100%;
 	}
-	@include limbo-only {
-		background-size: 7rem;
-	}
-	@include tab-only {
-		background-size: 5rem;
-	}
+
+
 	@include mob-only {
 		padding-top: 70px;
-		background-size: 3rem;
+
 	}
 	.text {
 		margin-bottom: 4.5rem;

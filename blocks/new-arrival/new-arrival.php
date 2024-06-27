@@ -35,8 +35,8 @@ if ( ! empty( $block['className'] ) ) {
 			</div>
 				<div class="carousel-cell_inner space_1_2">
 					<div class="st_arrival_content <?php echo esc_attr($layout); ?>">
-						<h4 class="prefix"><?php echo $prefix; ?></h4>
-						<h2 class="arrival_title" style="color: <?php echo wp_kses_post( get_sub_field('title_color') ); ?>"><?php echo $title; ?></h2>
+						<h2 class="prefix"><?php echo $prefix; ?></h2>
+						<h3 class="arrival_title" style="color: <?php echo wp_kses_post( get_sub_field('title_color') ); ?>"><?php echo $title; ?></h3>
 						<?php
 						$button_text_and_link = get_sub_field('button_text_and_link');
 						if( $button_text_and_link ):

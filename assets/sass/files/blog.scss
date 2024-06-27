@@ -93,6 +93,11 @@
 				}
 			}
 		}
+		svg {
+			width: 20px;
+			height: auto;
+			max-height: 28px
+		}
 		.st_share {
 			@include clean-list;
 			display: flex;

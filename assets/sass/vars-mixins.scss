@@ -365,6 +365,8 @@
 	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 	cursor: pointer;
 	border: none;
+	min-width: 17rem;
+	min-height: 56px;
 	@include tab-max {
 		min-height: 46px;
 	}
@@ -374,16 +376,13 @@
 	@include btn;
 	background-color: var(--color-3);
 	color: var(--color-1);
-	min-width: 125px;
-	min-height: 44px;
 }
 
 @mixin btn-2 {
 	@include btn;
 	background-color: var(--color-1);
 	color: var(--color-3);
-	min-width: 17rem;
-	min-height: 56px;
+
 	&:not(:first-of-type) {
 		@include tab-min {
 			margin-left: 2rem;
@@ -472,19 +471,12 @@ html {
 	margin-inline: auto;
 }
 @mixin color-swatch {
-	width: 33px;
-	height: 33px;
+	width: 26.4px;
+	height: 26.4px;
 	border-radius: 50px;
-	border: 3px solid transparent;
+	border: 2.5px solid transparent;
 	&.selected {
-		border-color: #000;
-		&[data-value='black'] {
-			border-color: var(--color-1);
-		}
-
-		&[data-color-name='black'] {
-			border-color: var(--color-1);
-		}
+		border-color: var(--color-1);
 	}
 }
 
@@ -492,7 +484,7 @@ html {
 	display: block;
 	text-align: center;
 	color: var(--color-1);
-	font-size: 16;
+	font-size: 16px;
 	text-transform: uppercase;
 	width: 100%;
 }

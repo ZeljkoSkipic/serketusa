@@ -22,7 +22,7 @@ if ( ! empty( $block['className'] ) ) {
 			$number = get_sub_field('number');
 			$title = get_sub_field('title'); ?>
 				<div class="st_counter">
-					<h4 class="counter_number title-1"><?php echo $number; ?></h4>
+					<h3 class="counter_number title-1"><?php echo $number; ?></h3>
 					<p class="counter_text body-2"><?php echo $title; ?></p>
 				</div>
 

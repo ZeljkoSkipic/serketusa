@@ -1,5 +1,6 @@
 .header-main {
-	background-color: #000
+	background-color: #000;
+
 }
 
 .sub-menu {
@@ -20,7 +21,8 @@
 	}
 	.header-main {
 		z-index: 9;
-		position: relative;
+		position: sticky;
+		top: 0;
 		.c-wide {
 			@include flex;
 			justify-content: space-between;
@@ -37,6 +39,9 @@
 				}
 			}
 		}
+	}
+	.admin-bar .header-main {
+		top: 32px;
 	}
 	.main-navigation {
 		#primary-menu {

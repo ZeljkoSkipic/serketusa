@@ -205,12 +205,18 @@
 	max-width: 850px;
 	border-top: 1px solid #919191;
 	.woocommerce-Address {
-		padding-top: var(--space-4);
+		background-color: #000000;
+		color: #fff;
+		border-radius: 14px;
+		padding: 4.5rem;
+		margin-top: 4rem;
+		text-transform: uppercase;
 		@include tab-min {
 			width: 48%;
 		}
 		address {
 			font-style: normal;
+			line-height: 24px;
 		}
 	}
 }
@@ -377,4 +383,52 @@
 		background-size: contain;
 		margin-bottom: 3rem;
 	}
+}
+
+
+/* Log In */
+
+.serket_login {
+
+
+	button {
+		display: flex;
+	}
+	@include limbo-min {
+		.col2-set {
+			@include flex-between;
+			> div {
+				width: 48%;
+			}
+		}
+	}
+}
+
+.woocommerce-form__label-for-checkbox {
+	display: flex;
+	margin-bottom: 3rem;
+	span {
+		background-image: url(../icons/square.svg);
+		background-size: contain;
+		background-repeat: no-repeat;
+		padding-left: 42px;
+		cursor: pointer;
+		height: 34px;
+		display: flex;
+		align-items: center;
+	}
+	input {
+		opacity: 0;
+		width: 0;
+	}
+	input:checked ~ span {
+		background-image: url(../icons/check-square.svg);
+	}
+}
+
+label[for="username"], label[for="password"], label[for="reg_email"] {
+	color: #000;
+	font-weight: 700;
+	margin-bottom: 20px;
+	display: block;
 }

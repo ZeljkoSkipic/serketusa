@@ -73,6 +73,11 @@ function stier_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'stier_scripts' );
 
+// Login Styles
+function stier_login_styles() {
+    wp_enqueue_style( 'login-style', get_template_directory_uri() . '/assets/dist/wp-login.css' );
+}
+add_action('login_head', 'stier_login_styles');
 
 // Admin Styles
 function stier_admin_styles() {

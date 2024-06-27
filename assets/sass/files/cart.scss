@@ -13,6 +13,31 @@
 
 		font-weight: 600;
 	}
+	.woocommerce-message {
+		border: 1px solid #000;
+		border-radius: 4px;
+		padding: 8px 16px;
+		margin-bottom: 16px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 18px;
+		flex-wrap: wrap;
+		@include tab-max {
+			flex-direction: column;
+			border: none;
+			text-align: center;
+			.restore-item {
+				margin-top: 16px;
+			}
+		}
+		.restore-item {
+			@include btn-2;
+			min-width: unset;
+   			min-height: 48px;
+		}
+	}
 	@include limbo-min {
 		.product-price {
 			grid-column: 7 / 9;
@@ -258,5 +283,77 @@
 	button[name="update_cart"] {
 		@include btn-1;
 		margin-top: var(--space-4);
+	}
+	button[name='calc_shipping'] {
+		@include btn-2;
+		width: 100%;
+	}
+	.woocommerce-shipping-totals {
+		flex-direction: column;
+		align-items: flex-start;
+		th {
+			margin-bottom: 4rem;
+		}
+		td {
+			width: 100%;
+		}
+	}
+	.woocommerce-shipping-methods {
+		li {
+			margin-bottom: 20px;
+			label {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				min-height: 35px;
+
+				width: 100%;
+				box-sizing: border-box;
+			}
+			input {
+				display: none;
+			}
+			input:checked + label {
+				background-image: url(../icons/radio-checked.svg);
+			}
+			@include mob-only {
+				font-size: 20px;
+				label {
+					background-size: 30px;
+					padding-left: 35px;
+					span {
+						font-size: 24px;
+					}
+				}
+			}
+			&:not(:only-child) {
+				label {
+					background-image: url(../icons/radio.svg);
+					background-repeat: no-repeat;
+					background-position: center left;
+					padding-left: 45px;
+					background-size: 34px;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+
+
+dl.variation {
+	margin-top: 20px;
+	margin-bottom: 0;
+	dt {
+		display: none;
+
+	}
+	dd {
+		margin: 0;
+		font-size: 16px;
+		p {
+			margin: 0;
+			color: #000;
+		}
 	}
 }

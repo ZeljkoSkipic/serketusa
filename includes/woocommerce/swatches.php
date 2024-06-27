@@ -135,6 +135,7 @@ add_action('product_swatches', 'add_swatches', 10, 4);
 
 function add_swatches($options, $attribute_name, $attribute_swatches_type, $product)
 {
+    
     $variations = $product->get_available_variations();
 
     // Find color Image for each variation
@@ -162,6 +163,19 @@ function add_swatches($options, $attribute_name, $attribute_swatches_type, $prod
         <?php
 
         if ($options) {
+            $terms = wc_get_product_terms(
+                $product->get_id(),
+                $attribute_name,
+                array(
+                    'fields' => 'all',
+                )
+            );
+        
+            $options = array_map(function($option) use($options) {
+                if(in_array($option->slug, $options)) {
+                    return $option->slug;
+                }
+            }, $terms);
             foreach ($options as $option) {
                 $valid = false;
                 foreach ($variations as $variation) {
@@ -176,14 +190,14 @@ function add_swatches($options, $attribute_name, $attribute_swatches_type, $prod
                 $term = get_term_by('slug', $option, $attribute_name);
                 if ($attribute_swatches_type == 'name') {
         ?>
-                    <span data-attribute-name="<?php echo $attribute_name; ?>" data-value="<?php echo $option; ?>" class="product-swatches__label"><?php echo $term->name; ?></span>
+                    <span title="<?php echo $term->name; ?>" data-attribute-name="<?php echo $attribute_name; ?>" data-value="<?php echo $option; ?>" class="product-swatches__label"><?php echo $term->name; ?></span>
 
                 <?php
                 } else if ($attribute_swatches_type == 'color') {
 
                     $term_color = get_term_meta($term->term_id, 'color', true);
                 ?>
-                    <span <?php if (isset($colors_images))  if (isset($colors_images[$term->slug]))  echo 'data-image-url="' . $colors_images[$term->slug]['url'] . '"' . ' data-image-src="' . $colors_images[$term->slug]['srcset'] . '"';
+                    <span title="<?php echo $term->name; ?>" <?php if (isset($colors_images))  if (isset($colors_images[$term->slug]))  echo 'data-image-url="' . $colors_images[$term->slug]['url'] . '"' . ' data-image-src="' . $colors_images[$term->slug]['srcset'] . '"';
                             else echo 'data-image-url="' . wp_get_attachment_image_url($default_image_id, 'full') . '"' . ' data-image-src="' . wp_get_attachment_image_srcset($default_image_id, 'full') . '"';     ?> data-attribute-name="<?php echo $attribute_name; ?>" style="<?php echo 'background-color:' . $term_color ?>" data-value="<?php echo $option; ?>" class="product-swatches__label">&nbsp;</span>
 
         <?php
@@ -209,16 +223,18 @@ function product_catalog_swatches($product_colors, $product)
             <?php
             if(is_singular('product')) {
                 ?>
-                <h4 class="sp-am-title" class="product-swatches-catalog__name-label"><strong><?php esc_html_e('Colors', 'serket'); ?></strong></h4>
+                <h4 class="sp-am-title" class="product-swatches-catalog__name-label"><strong><?php esc_html_e('Colors:', 'serket'); ?></strong></h4>
                 <?php
             }
 
             $default_image = $product->get_image_id();
+
             foreach ($product_colors as $product_color) {
                 $image = $product_color['image'];
-
+                $color_name =  str_replace(" ", '-', strtolower($product_color['color_name']));
+                $color_name =  preg_replace('/[^a-zA-Z0-9-]/', '', $color_name);
             ?>
-                <span data-default-image-url="<?php echo wp_get_attachment_image_url($default_image, 'full'); ?>" data-default-image-woo-size="<?php echo wp_get_attachment_image_url($default_image, 'woocommerce_single')  ?>" data-default-image-srcset="<?php echo wp_get_attachment_image_srcset($default_image, 'full') ?>" data-image-woo-size="<?php echo wp_get_attachment_image_url($image, 'woocommerce_single')  ?>" data-image-url="<?php echo wp_get_attachment_image_url($image, 'full'); ?>" data-image-srcset="<?php echo wp_get_attachment_image_srcset($image, 'full') ?>" data-color-name="<?php echo str_replace(" ", '-', strtolower($product_color['color_name'])); ?>" style="<?php echo 'background-color:' . $product_color['color'] ?>" class="product-swatches-catalog__label">&nbsp;</span>
+                <span title="<?php echo  $product_color['color_name']; ?>" data-default-image-url="<?php echo wp_get_attachment_image_url($default_image, 'full'); ?>" data-default-image-woo-size="<?php echo wp_get_attachment_image_url($default_image, 'woocommerce_single')  ?>" data-default-image-srcset="<?php echo wp_get_attachment_image_srcset($default_image, 'full') ?>" data-image-woo-size="<?php echo wp_get_attachment_image_url($image, 'woocommerce_single')  ?>" data-image-url="<?php echo wp_get_attachment_image_url($image, 'full'); ?>" data-image-srcset="<?php echo wp_get_attachment_image_srcset($image, 'full') ?>" data-color-name="<?php echo $color_name; ?>" style="<?php echo 'background-color:' . $product_color['color'] ?>" class="product-swatches-catalog__label">&nbsp;</span>
 
             <?php
             }
@@ -269,17 +285,31 @@ function preSelectColorAttribute($args)
 
     if (isset($_GET['productColor']) && $_GET['productColor']) {
         $color_slug = wp_strip_all_tags($_GET['productColor']);
+        $product = wc_get_product(get_the_ID());
+        $variations = $product->get_available_variations();
+        $default_attributes = [];
+
+        if($variations) {
+            foreach($variations as $variation) {
+               if(in_array($color_slug, $variation['attributes'])) {
+                    $default_attributes = $variation['attributes'];
+                    break;
+               }
+            }
+        }
 
         if (count($args['options']) > 0) {
+            
             foreach ($args['options'] as $key => $option) {
 
-                if ($option === $color_slug) {
+                if (in_array($option, $default_attributes)) {
                     $args['selected'] = $args['options'][$key];
                 }
             }
         }
     }
 
+   
     return $args;
 }
 

@@ -8,7 +8,7 @@ $additional_countries = (array) get_field('choose_additional_countries', 'option
 if ($user_registred && $user_registred == true) :
 ?>
     <div class="register-form-thank-you">
-        <div class="container">
+        <div class="c-narrow space_3">
             <p><?php esc_html_e('Thank you for your registration, your account will be reviewed shortly.', 'register') ?></p>
         </div>
     </div>

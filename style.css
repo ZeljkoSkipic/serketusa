@@ -3,8 +3,17 @@ Theme Name:  Serket USA
 Theme URI:   https://serketusa.com/
 Author:      S Tier Dev
 Author URI:  https://stierdev.com/
-Version:     0.0.15
+Version:     1.2.5
 Description: Theme created for purposes of Serket USA website
 Text Domain: stier
-WordPress Version: 6.4.3
+WordPress Version: 6.5.5
 */
+
+
+@-moz-document url-prefix() {
+	@media (min-width: 479.6px) {
+		.single-product .woocommerce-product-gallery:not(.gallery-multiple-images) .flex-viewport:not(:only-child) img {
+			width: 80%;
+		}
+	}
+}

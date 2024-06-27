@@ -3,7 +3,7 @@
 	.archive_hero_background {
 		@include abs;
 		z-index: -1;
-		height: 100%;
+		content: unset;
 	}
 
 	.page-title {
@@ -18,6 +18,11 @@
 .products {
 	@include flex;
 	@include clean-list;
+	.product_cat-ngb {
+		.price {
+			display: none!important;
+		}
+	}
 	&.columns-4 {
 		.product {
 			@include limbo-min {
@@ -102,8 +107,8 @@
 			span {
 				@include color-swatch;
 				margin-bottom: 0;
-				width: 33px;
-				height: 33px;
+				width: 26.4px;
+				height: 26.4px;
 				&:not(:last-child) {
 					margin-right: 15px;
 				}

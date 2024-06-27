@@ -20,11 +20,42 @@ jQuery(document).ready(function ($) {
 	const defaultVariations = $(".variations select");
 	const resetLink = ".reset_variations";
 
+	const WooDescriptionAttrSelection = (currentTerm) => {
+
+		const name = currentTerm.attr("title");
+		const wooDescriptionAttributes = $(".woocommerce-product-attributes-item");
+
+		$.each(wooDescriptionAttributes, (key, attr) => {
+			const attributesElement = $(attr).find("p");
+			const attributesText = attributesElement.text();
+			if (attributesText) {
+				const attributesArray = attributesText.split(", ");
+				
+				if (attributesArray.includes(name)) {
+					attributesElement.text("");
+					$.each(attributesArray, (key, attrName) => {
+						let separator;
+						key + 1 === attributesArray.length
+							? (separator = "")
+							: (separator = ", ");
+						attrName === name
+							? (attrName = `<span class='highlight'>${attrName}</span>`)
+							: attrName;
+						attributesElement.append(attrName + separator);
+					});
+				}
+			}
+		});
+	}
+
 	const triggerWooAttributeSelectChange = (e) => {
 		const currentTerm = $(e.currentTarget);
 		const value = currentTerm.data("value");
 		const taxonomy = currentTerm.data("attribute-name");
 		const siblingsTerms = currentTerm.parent().find(swatchesLabels);
+
+		WooDescriptionAttrSelection(currentTerm);
+		
 
 		if (!currentTerm.hasClass("selected")) {
 			$(`#${taxonomy}`).val(value);
@@ -72,6 +103,8 @@ jQuery(document).ready(function ($) {
 				$(`.product-swatches__label[data-value=${currentTermValue}]`).addClass(
 					"selected"
 				);
+
+				WooDescriptionAttrSelection($(`.product-swatches__label[data-value=${currentTermValue}]`));
 			}
 		});
 
@@ -80,6 +113,9 @@ jQuery(document).ready(function ($) {
 
 	const resetVariation = () => {
 		swatchesLabels.removeClass("selected");
+		const wooDescriptionAttributes = $(".woocommerce-product-attributes-item");
+		const highlightLabels = wooDescriptionAttributes.find('.highlight')
+		highlightLabels.removeClass('highlight');
 	};
 
 	const contentProductColorPreselect = (e) => {
@@ -119,14 +155,14 @@ jQuery(document).ready(function ($) {
 
 	const catalogSwatchesInit = () => {
 		const url = new URL(window.location.href);
+
 		if (
 			url.searchParams.get("productColor") &&
 			$(".product-template-single-product-catalog").length
 		) {
+			let param = url.searchParams.get("productColor").replace(/[^a-zA-Z0-9-]/g, '');
 			$(
-				`.summary span[data-color-name=${url.searchParams.get(
-					"productColor"
-				)}].product-swatches-catalog__label`
+				`.summary span[data-color-name=${param}].product-swatches-catalog__label`
 			).trigger("click");
 		}
 	};

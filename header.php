@@ -17,18 +17,15 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<!--
-	Insert site main color
-	<meta name="theme-color" content="#45eba5" />
-	-->
-	<?php the_field('head_script', 'option'); ?> <!-- Head External Code -->
+	<meta name="theme-color" content="#ECAA1F" />
+	<?php echo get_field('head_script', 'option'); ?> <!-- Head External Code -->
 	<?php wp_head(); ?>
 
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<?php the_field('body_top_script', 'option'); ?> <!-- Body Top External Code -->
+<?php echo get_field('body_top_script', 'option'); ?> <!-- Body Top External Code -->
 
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'stier' ); ?></a>
@@ -62,7 +59,7 @@
 					<input type="image" alt="Search" id="search_icon" src="<?php bloginfo( 'template_url' ); ?>/assets/icons//search.svg" />
 					<input type="text" name="s" id="search" placeholder="Search" value="<?php the_search_query(); ?>" />
 				</form>
-				<a href="<?php echo get_permalink( wc_get_page_id( 'cart' ) ); ?>">
+				<a href="<?php echo get_permalink( wc_get_page_id( 'cart' ) ); ?>" aria-label="Cart">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32.547" height="31.63" viewBox="0 0 32.547 31.63">
 					<defs>
 						<clipPath id="clip-path">

@@ -44,11 +44,32 @@ jQuery(document).ready(function ($) {
   var swatchesCatalog = $(".product-swatches-catalog .product-swatches-catalog__label");
   var defaultVariations = $(".variations select");
   var resetLink = ".reset_variations";
+  var WooDescriptionAttrSelection = function WooDescriptionAttrSelection(currentTerm) {
+    var name = currentTerm.attr("title");
+    var wooDescriptionAttributes = $(".woocommerce-product-attributes-item");
+    $.each(wooDescriptionAttributes, function (key, attr) {
+      var attributesElement = $(attr).find("p");
+      var attributesText = attributesElement.text();
+      if (attributesText) {
+        var attributesArray = attributesText.split(", ");
+        if (attributesArray.includes(name)) {
+          attributesElement.text("");
+          $.each(attributesArray, function (key, attrName) {
+            var separator;
+            key + 1 === attributesArray.length ? separator = "" : separator = ", ";
+            attrName === name ? attrName = "<span class='highlight'>".concat(attrName, "</span>") : attrName;
+            attributesElement.append(attrName + separator);
+          });
+        }
+      }
+    });
+  };
   var triggerWooAttributeSelectChange = function triggerWooAttributeSelectChange(e) {
     var currentTerm = $(e.currentTarget);
     var value = currentTerm.data("value");
     var taxonomy = currentTerm.data("attribute-name");
     var siblingsTerms = currentTerm.parent().find(swatchesLabels);
+    WooDescriptionAttrSelection(currentTerm);
     if (!currentTerm.hasClass("selected")) {
       $("#".concat(taxonomy)).val(value);
       $("#".concat(taxonomy)).trigger("change");
@@ -86,12 +107,16 @@ jQuery(document).ready(function ($) {
       var currentTermValue = currentTerm.val();
       if (currentTermValue) {
         $(".product-swatches__label[data-value=".concat(currentTermValue, "]")).addClass("selected");
+        WooDescriptionAttrSelection($(".product-swatches__label[data-value=".concat(currentTermValue, "]")));
       }
     });
     disableAttributes();
   };
   var resetVariation = function resetVariation() {
     swatchesLabels.removeClass("selected");
+    var wooDescriptionAttributes = $(".woocommerce-product-attributes-item");
+    var highlightLabels = wooDescriptionAttributes.find('.highlight');
+    highlightLabels.removeClass('highlight');
   };
   var contentProductColorPreselect = function contentProductColorPreselect(e) {
     e.stopPropagation();
@@ -122,7 +147,8 @@ jQuery(document).ready(function ($) {
   var catalogSwatchesInit = function catalogSwatchesInit() {
     var url = new URL(window.location.href);
     if (url.searchParams.get("productColor") && $(".product-template-single-product-catalog").length) {
-      $(".summary span[data-color-name=".concat(url.searchParams.get("productColor"), "].product-swatches-catalog__label")).trigger("click");
+      var param = url.searchParams.get("productColor").replace(/[^a-zA-Z0-9-]/g, '');
+      $(".summary span[data-color-name=".concat(param, "].product-swatches-catalog__label")).trigger("click");
     }
   };
   var contentProductColorPreselectCatalog = function contentProductColorPreselectCatalog(e) {

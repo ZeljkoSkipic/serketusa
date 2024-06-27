@@ -62,16 +62,16 @@ get_header();
 								</a>
 							</li>
 							<li>
-								<a href="http://twitter.com/share?text=<?php echo get_the_title(); ?>&url=<?php echo get_permalink(); ?>">
-								<svg xmlns="http://www.w3.org/2000/svg" width="25.279" height="20.531" viewBox="0 0 25.279 20.531">
-									<path id="Path_26" data-name="Path 26" d="M1267.107,43.75a5.317,5.317,0,0,1,9.119-4.627,13.426,13.426,0,0,0,3.151-1.408,5.8,5.8,0,0,1-2.347,2.95,9.993,9.993,0,0,0,2.883-.8,5.6,5.6,0,0,1-2.481,2.481c.872,12.137-12.2,19.513-22.8,13.478,0,0,5.23.268,7.443-2.28,0,0-3.219.268-4.828-3.621a3.234,3.234,0,0,0,2.414-.134,5.234,5.234,0,0,1-4.09-5.1,3.3,3.3,0,0,0,2.548.6,5.144,5.144,0,0,1-1.811-6.973s4.426,5.632,10.8,5.431" transform="translate(-1254.635 -37.436)" fill-rule="evenodd"/>
+								<a href="https://linkedin.com/shareArticle?url=<?php echo get_permalink(); ?>/&title=<?php echo get_the_title(); ?>" target="_blank">
+								<svg xmlns="http://www.w3.org/2000/svg" width="23.156" height="23.271" viewBox="0 0 23.156 23.271">
+									<path id="Path_25" data-name="Path 25" d="M1908.258,627.339h4.6v15.438h-4.6Zm2.27-7.832a2.781,2.781,0,1,1,0,5.562,2.782,2.782,0,0,1,0-5.562m5.051,7.832h4.54V629.5a5.253,5.253,0,0,1,4.37-2.327h1.249a5.244,5.244,0,0,1,5.221,5.222v10.386h-4.54v-8.343a3.018,3.018,0,0,0-3.008-3.121,3.261,3.261,0,0,0-3.292,3.121v8.343h-4.54Z" transform="translate(-1907.804 -619.507)" fill-rule="evenodd"/>
 								</svg>
 								</a>
 							</li>
 							<li>
-								<a href="https://linkedin.com/shareArticle?url=<?php echo get_permalink(); ?>/&title=<?php echo get_the_title(); ?>" target="_blank">
-								<svg xmlns="http://www.w3.org/2000/svg" width="23.156" height="23.271" viewBox="0 0 23.156 23.271">
-									<path id="Path_25" data-name="Path 25" d="M1908.258,627.339h4.6v15.438h-4.6Zm2.27-7.832a2.781,2.781,0,1,1,0,5.562,2.782,2.782,0,0,1,0-5.562m5.051,7.832h4.54V629.5a5.253,5.253,0,0,1,4.37-2.327h1.249a5.244,5.244,0,0,1,5.221,5.222v10.386h-4.54v-8.343a3.018,3.018,0,0,0-3.008-3.121,3.261,3.261,0,0,0-3.292,3.121v8.343h-4.54Z" transform="translate(-1907.804 -619.507)" fill-rule="evenodd"/>
+								<a href="http://twitter.com/share?text=<?php echo get_the_title(); ?>&url=<?php echo get_permalink(); ?>">
+								<svg width="1200" height="1227" viewBox="0 0 1200 1227" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z" fill="#000"/>
 								</svg>
 								</a>
 							</li>

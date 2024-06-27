@@ -40,21 +40,38 @@ function dashboard_footer_admin ()
 
 add_filter('admin_footer_text', 'dashboard_footer_admin');
 
-// ACF Local JSON
+// Login Screen
 
-function my_acf_json_save_point( $path ) {
-    return get_stylesheet_directory() . '/acf-json';
+add_filter( 'login_headerurl', 'my_custom_login_url' );
+function my_custom_login_url($url) {
+    return '/';
 }
-add_filter( 'acf/settings/save_json', 'my_acf_json_save_point' );
 
-function my_acf_json_load_point( $paths ) {
+function get_custom_logo_url() {
+    $custom_logo_id = get_theme_mod('custom_logo');
+    $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
 
-    // Append the new path and return it.
-    $paths = get_stylesheet_directory() . '/acf-json';
-
-    return $paths;
+    if (has_custom_logo()) {
+        return $logo[0];
+    } else {
+        return ''; // Return an empty string or a default logo URL if no custom logo is set
+    }
 }
-add_filter( 'acf/settings/load_json', 'my_acf_json_load_point' );
+
+function custom_login_logo() {
+    $logo_url = get_custom_logo_url();
+    if ($logo_url != '') {
+        ?>
+        <style type="text/css">
+            #login h1 a, .login h1 a {
+                background-image: url(<?php echo esc_url($logo_url); ?>);
+
+            }
+        </style>
+        <?php
+    }
+}
+add_action('login_enqueue_scripts', 'custom_login_logo');
 
 
 // Settings pages

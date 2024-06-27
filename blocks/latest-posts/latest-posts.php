@@ -36,7 +36,7 @@ if ( ! empty( $block['className'] ) ) {
 				$excerpt = wp_trim_words( get_the_content(), 20, '...' ); ?>
 
 				<div class="latest_post">
-					<a href="<?php echo $post_link; ?>">
+					<a href="<?php echo $post_link; ?>" aria-label="<?php the_title(); ?>">
 						<?php the_post_thumbnail();	?>
 					</a>
 					<div class="lp_content">
